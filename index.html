@@ -1090,7 +1090,227 @@
       .about-highlights-3d{grid-template-columns:1fr;gap:12px}
       .tilt-card-inner{padding:18px}
     }
-</style>
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section{
+      border-radius:var(--radius);
+      max-width:1100px;
+      margin:0 auto;
+      padding:80px 24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-section::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(10,10,10,0.5);
+      backdrop-filter:blur(2px);
+      z-index:0;
+    }
+    .contact-inner{
+      position:relative;
+      z-index:1;
+      max-width:800px;
+      margin:0 auto;
+    }
+    .contact-header{
+      text-align:center;
+      margin-bottom:40px;
+    }
+    .contact-header h2{
+      font-size:clamp(28px,4vw,36px);
+      font-weight:700;
+      color:#fff;
+      margin-bottom:12px;
+    }
+    .contact-header p{
+      color:rgba(255,255,255,0.7);
+      font-size:16px;
+      line-height:1.6;
+      margin-bottom:24px;
+    }
+    .contact-header .social-links{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .contact-header .social-link{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      color:rgba(255,255,255,0.7);
+      transition:all 0.3s ease;
+    }
+    .contact-header .social-link:hover{
+      background:rgba(201,169,89,0.12);
+      border-color:rgba(201,169,89,0.3);
+      color:var(--gold);
+      transform:translateY(-3px);
+      box-shadow:0 8px 24px rgba(201,169,89,0.15);
+    }
+    
+    /* Contact Form */
+    .contact-form{
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:40px 36px;
+      max-width:560px;
+      margin:0 auto;
+      transition:border-color 0.3s ease;
+    }
+    .contact-form:focus-within{
+      border-color:rgba(201,169,89,0.2);
+    }
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .form-group{
+      position:relative;
+      margin-bottom:24px;
+    }
+    .form-group input,
+    .form-group textarea{
+      width:100%;
+      padding:16px 0 6px;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#fff;
+      font-size:15px;
+      font-family:inherit;
+      resize:vertical;
+      min-height:24px;
+    }
+    .form-group textarea{
+      min-height:80px;
+      padding-top:20px;
+    }
+    .form-group label{
+      position:absolute;
+      left:0;
+      top:14px;
+      color:rgba(255,255,255,0.35);
+      font-size:15px;
+      pointer-events:none;
+      transition:all 0.25s ease;
+      transform-origin:left top;
+    }
+    .form-group input:focus ~ label,
+    .form-group input:not(:placeholder-shown) ~ label,
+    .form-group textarea:focus ~ label,
+    .form-group textarea:valid ~ label{
+      top:0;
+      font-size:11px;
+      color:rgba(201,169,89,0.7);
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+    }
+    .form-line{
+      position:absolute;
+      bottom:0;left:0;right:0;
+      height:1px;
+      background:rgba(255,255,255,0.08);
+      transition:all 0.3s ease;
+    }
+    .form-group input:focus ~ .form-line,
+    .form-group textarea:focus ~ .form-line{
+      height:2px;
+      background:linear-gradient(90deg,var(--gold),rgba(201,169,89,0.3));
+      box-shadow:0 0 12px rgba(201,169,89,0.2);
+    }
+    
+    /* Submit Button */
+    .submit-btn{
+      position:relative;
+      width:100%;
+      padding:16px 32px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(135deg,rgba(201,169,89,0.15),rgba(201,169,89,0.05));
+      border:1px solid rgba(201,169,89,0.2);
+      color:var(--gold);
+      font-size:15px;
+      font-family:inherit;
+      font-weight:500;
+      cursor:pointer;
+      overflow:hidden;
+      transition:all 0.3s ease;
+      margin-top:8px;
+    }
+    .submit-btn .btn-bg{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(201,169,89,0.2),rgba(201,169,89,0.08));
+      opacity:0;
+      transition:opacity 0.3s ease;
+    }
+    .submit-btn:hover .btn-bg{opacity:1}
+    .submit-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 32px rgba(201,169,89,0.15);
+      border-color:rgba(201,169,89,0.4);
+    }
+    .submit-btn:active{transform:translateY(0)}
+    .submit-btn .btn-content{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+    .submit-btn .btn-icon{
+      transition:transform 0.3s ease;
+    }
+    .submit-btn:hover .btn-icon{
+      transform:translateX(4px);
+    }
+    
+    /* Form Status */
+    .form-status{
+      margin-top:16px;
+      padding:12px 16px;
+      border-radius:10px;
+      font-size:14px;
+      text-align:center;
+      display:none;
+      animation:fadeIn 0.3s ease;
+    }
+    .form-status.success{
+      display:block;
+      background:rgba(76,175,80,0.1);
+      border:1px solid rgba(76,175,80,0.2);
+      color:#81c784;
+    }
+    .form-status.error{
+      display:block;
+      background:rgba(244,67,54,0.1);
+      border:1px solid rgba(244,67,54,0.2);
+      color:#e57373;
+    }
+    
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(4px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    
+    @media(max-width:640px){
+      .form-row{grid-template-columns:1fr;gap:0}
+      .contact-form{padding:28px 20px;border-radius:16px}
+      .contact-section{padding:60px 16px}
+    }</style>
 </head>
 <body>
 
@@ -1821,38 +2041,57 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-section with-photo" id="contact" style="background-image:url('media/bg/IMG_5867.PNG');background-position:center 10%;border-radius:var(--radius);max-width:1100px;margin:0 auto;padding:80px 24px">
-    <h2 class="reveal">Связаться</h2>
-    <p class="reveal">Буду рад новым знакомствам, коллаборациям и проектам</p>
-    <div class="social-links reveal">
-      <a href="https://www.instagram.com/mr.arsenbekirov" class="social-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" class="social-link" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://t.me/NikosKworkAssistantBot" class="social-link" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-      <a href="https://wa.me/79780525045" class="social-link" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:+79780525045" class="social-link" target="_blank" title="Телефон"><i class="fas fa-phone"></i></a>
-      <a href="mailto:mr.arsenbekirov@mail.ru" class="social-link" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+  <section class="contact-section with-photo" id="contact" style="background-image:url('media/bg/IMG_5867.PNG');background-position:center 10%;">
+    <div class="contact-inner reveal">
+      <div class="contact-header">
+        <h2>Связаться</h2>
+        <p>Буду рад новым знакомствам, коллаборациям и проектам</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/mr.arsenbekirov" class="social-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" class="social-link" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://t.me/NikosKworkAssistantBot" class="social-link" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="https://wa.me/79780525045" class="social-link" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="tel:+79780525045" class="social-link" target="_blank" title="Телефон"><i class="fas fa-phone"></i></a>
+          <a href="mailto:mr.arsenbekirov@mail.ru" class="social-link" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/send" method="POST">
+        <input type="hidden" name="subject" value="Сообщение с arsenbekirov.com">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" name="name" id="cf_name" autocomplete="name" required>
+            <label for="cf_name">Ваше имя</label>
+            <div class="form-line"></div>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="cf_email" autocomplete="email" required>
+            <label for="cf_email">Email</label>
+            <div class="form-line"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" name="phone" id="cf_phone" autocomplete="tel">
+            <label for="cf_phone">Телефон (опционально)</label>
+            <div class="form-line"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="cf_message" rows="4" required></textarea>
+          <label for="cf_message">Ваше сообщение</label>
+          <div class="form-line"></div>
+        </div>
+        <button type="submit" class="submit-btn" id="formSubmitBtn">
+          <span class="btn-bg"></span>
+          <span class="btn-content">
+            <span id="btnText">Отправить</span>
+            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+            <span id="btnSpinner" style="display:none">⏳ Отправка...</span>
+          </span>
+        </button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
     </div>
-
-    <form class="contact-form reveal" id="contactForm">
-      <input type="hidden" name="subject" value="Сообщение с arsenbekirov.com">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Email" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" name="phone" placeholder="Телефон (опционально)">
-      </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn" id="formSubmitBtn">
-        <span id="btnText">Отправить</span>
-        <span id="btnSpinner" style="display:none">⏳ Отправка...</span>
-      </button>
-      <div class="form-status" id="formStatus"></div>
-    </form>
   </section>
 
   <!-- FOOTER -->
