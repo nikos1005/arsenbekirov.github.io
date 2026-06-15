@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Арсен Бекиров | Официальный сайт артиста</title>
+  <meta name="description" content="Заслуженный артист Крыма и Татарстана. Этно-поп, каверы, выступления. Qirim EP.">
+  <meta property="og:title" content="Арсен Бекиров | Музыкант">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrarsenbekirov.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --gold:#C9A959;
+      --gold-light:#e0c87a;
+      --gold-dark:#a8883a;
+      --bg:#000000;
+      --bg2:#0a0a0a;
+      --bg3:#111111;
+      --text:#FFFFFF;
+      --text-muted:#999;
+      --glass:rgba(255,255,255,0.03);
+      --glass-border:rgba(255,255,255,0.06);
+      --radius:12px;
+      --radius-btn:30px;
+      --transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+    ::selection{background:var(--gold);color:#000}
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:3px}
+
+    /* ===== ANIMATED BACKGROUND PARTICLES ===== */
+    #particles-canvas{
+      position:fixed;
+      top:0;left:0;
+      width:100vw;height:100vh;
+      pointer-events:none;
+      z-index:0;
+      opacity:0.4;
+    }
+
+    /* ===== NAV ===== */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      padding:0 24px;
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:rgba(10,10,15,0.8);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--glass-border);
+      transition:var(--transition);
+    }
+    nav.scrolled{background:rgba(10,10,15,0.95)}
+    .nav-logo{
+      font-family:'Playfair Display',serif;
+      font-size:18px;
+      color:var(--gold);
+      text-decoration:none;
+      letter-spacing:1px;
+    }
+    .nav-logo span{color:var(--text)}
+    .nav-links{display:flex;gap:8px}
+    .nav-links a{
+      color:var(--text-muted);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:500;
+      padding:8px 16px;
+      border-radius:8px;
+      transition:var(--transition);
+    }
+    .nav-links a:hover{color:var(--gold);background:var(--glass)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:8px}
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      z-index:1;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:100px 24px 60px;
+      overflow:hidden;
+    }
+    .hero-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 30%;
+      z-index:0;
+      filter:brightness(0.45) saturate(0.9);
+    }
+    .hero-video-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+      z-index:1;
+      pointer-events:none;
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 20px;
+      border:1px solid var(--gold-dark);
+      border-radius:var(--radius-btn);
+      font-size:12px;
+      font-weight:500;
+      color:var(--gold);
+      letter-spacing:1px;
+      text-transform:uppercase;
+      margin-bottom:30px;
+      opacity:0;
+      animation:fadeUp 0.8s 0.3s forwards;
+    }
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(48px,10vw,120px);
+      font-weight:700;
+      line-height:1.05;
+      opacity:0;
+      animation:fadeUp 1s 0.5s forwards;
+    }
+    .hero h1 .gold{color:var(--gold)}
+    .hero h1 .gold-light{color:var(--gold-light)}
+    .hero .subtitle{
+      font-size:clamp(18px,2.5vw,28px);
+      color:rgba(255,255,255,0.6);
+      font-weight:300;
+      margin-top:16px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      opacity:0;
+      animation:fadeUp 1s 0.7s forwards;
+    }
+    .hero-cta{
+      display:flex;
+      gap:12px;
+      margin-top:40px;
+      opacity:0;
+      animation:fadeUp 1s 1.1s forwards;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:14px 32px;
+      border-radius:var(--radius-btn);
+      font-size:15px;
+      font-weight:600;
+      text-decoration:none;
+      transition:var(--transition);
+      cursor:pointer;
+      border:none;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:#000;
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,89,0.3)}
+    .btn-outline{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.15);
+    }
+    .btn-outline:hover{background:rgba(255,255,255,0.05);border-color:var(--gold);color:var(--gold)}
+    .hero-scroll{
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      color:var(--text-muted);
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      opacity:0;
+      animation:fadeUp 1s 1.4s forwards;
+    }
+    .hero-scroll .mouse{
+      width:22px;height:34px;
+      border:2px solid var(--text-muted);
+      border-radius:12px;
+      position:relative;
+    }
+    .hero-scroll .mouse::after{
+      content:'';
+      position:absolute;
+      top:6px;left:50%;
+      transform:translateX(-50%);
+      width:3px;height:8px;
+      background:var(--gold);
+      border-radius:2px;
+      animation:scrollWheel 1.5s infinite;
+    }
+
+    /* ===== SECTION ===== */
+    .section{
+      position:relative;
+      z-index:1;
+      max-width:1100px;
+      margin:0 auto;
+      padding:100px 24px;
+    }
+    [class*="with-photo"]{
+      background-size:cover;
+      background-position:center 25%;
+      border-radius:var(--radius);
+      overflow:hidden;
+      position:relative;
+    }
+    [class*="with-photo"]::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%);
+      z-index:0;
+    }
+    [class*="with-photo"]>*{
+      position:relative;
+      z-index:1;
+    }
+    .section.section-bg{
+      background-size:cover;
+      background-position:center;
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    .section.section-bg::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(10,10,15,0.88) 20%, rgba(10,10,15,0.55) 60%, rgba(10,10,15,0.3) 100%);
+      z-index:0;
+    }
+    .section.section-bg>*{
+      position:relative;
+      z-index:1;
+    }
+    .section-header{
+      text-align:center;
+      margin-bottom:60px;
+    }
+    .section-header .label{
+      display:inline-block;
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:12px;
+    }
+    .section-header h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(28px,4vw,48px);
+      font-weight:600;
+    }
+    .section-header p{
+      color:var(--text-muted);
+      max-width:500px;
+      margin:12px auto 0;
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    /* ===== DISCOGRAPHY ===== */
+    .discography-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:start;
+    }
+    .album-cover{
+      position:sticky;
+      top:90px;
+      aspect-ratio:1;
+      border-radius:var(--radius);
+      background:linear-gradient(135deg,#1a1a2e,#0d0d1a);
+      border:1px solid var(--glass-border);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .album-cover .icon{
+      font-size:64px;
+      color:var(--gold);
+      opacity:0.5;
+      margin-bottom:16px;
+      position:relative;
+    }
+    .album-cover h3{
+      font-family:'Playfair Display',serif;
+      font-size:32px;
+      color:var(--gold);
+      position:relative;
+    }
+    .album-cover p{
+      color:var(--text-muted);
+      font-size:14px;
+      margin-top:8px;
+      position:relative;
+    }
+    .track-list{display:flex;flex-direction:column;gap:10px}
+    .track-item{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:16px 20px;
+      background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      border-radius:14px;
+      cursor:pointer;
+      transition:var(--transition);
+      position:relative;
+          }
+    .track-item::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      border-radius:14px;
+      background:linear-gradient(135deg,transparent 40%,rgba(201,169,89,0.03) 100%);
+      pointer-events:none;
+      opacity:0;
+      transition:opacity 0.4s;
+    }
+    .track-item:hover{
+      border-color:var(--gold-dark);
+      background:rgba(201,169,89,0.06);
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 8px 30px rgba(201,169,89,0.08), inset 0 1px 0 rgba(201,169,89,0.1);
+    }
+    .track-item:hover::after{opacity:1}
+    .track-item:active{transform:translateY(0) scale(0.99)}
+    .track-item .num{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      background:rgba(201,169,89,0.08);
+      border:1px solid rgba(201,169,89,0.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      font-weight:700;
+      color:var(--gold);
+      flex-shrink:0;
+      transition:var(--transition);
+      box-shadow:inset 0 1px 0 rgba(201,169,89,0.2);
+    }
+    .track-item:hover .num{
+      background:var(--gold);
+      color:#000;
+      box-shadow:0 0 20px rgba(201,169,89,0.3);
+    }
+    .track-item .info{flex:1;min-width:0}
+    .track-item .info .name{font-size:15px;font-weight:500;transition:var(--transition)}
+    .track-item:hover .info .name{color:var(--gold-light)}
+    .track-item .info .meta{font-size:12px;color:var(--text-muted);margin-top:2px}
+    .track-item .play-btn{
+      width:40px;height:40px;
+      border-radius:50%;
+      background:rgba(201,169,89,0.1);
+      border:1px solid rgba(201,169,89,0.2);
+      color:var(--gold);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:var(--transition);
+      flex-shrink:0;
+      font-size:15px;
+      position:relative;
+      box-shadow:0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(201,169,89,0.2);
+    }
+    .track-item .play-btn::before{
+      content:'';
+      position:absolute;
+      inset:-2px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold-dark),transparent);
+      z-index:-1;
+      opacity:0;
+      transition:opacity 0.4s;
+    }
+    .track-item .play-btn:hover{
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:#000;
+      border-color:var(--gold);
+      transform:scale(1.1);
+      box-shadow:0 4px 20px rgba(201,169,89,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .track-item .play-btn:hover::before{opacity:1}
+    .track-item .play-btn:active{transform:scale(0.95)}
+
+    /* ===== COVERS ===== */
+    .covers-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+      gap:16px;
+    }
+    .cover-card{
+      background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      border-radius:14px;
+      padding:20px;
+      transition:var(--transition);
+      position:relative;
+    }
+    .cover-card:hover{
+      border-color:var(--gold-dark);
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 12px 40px rgba(201,169,89,0.1), inset 0 1px 0 rgba(201,169,89,0.05)
+    }
+    .cover-card .name{
+      font-size:15px;
+      font-weight:500;
+      margin-bottom:12px;
+    }
+    .cover-card audio{
+      width:100%;
+      height:38px;
+      border-radius:6px;
+    }
+    .cover-card audio::-webkit-media-controls-panel{background:var(--bg2)}
+
+    /* ===== STATS ===== */
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+    .stat-card{
+      text-align:center;
+      padding:40px 24px;
+      background:rgba(0,0,0,0.15);
+      border:1px solid rgba(201,169,89,0.1);
+      border-radius:16px;
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat-card::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      opacity:0.5;
+    }
+    .stat-card:hover{
+      border-color:var(--gold);
+      transform:translateY(-6px);
+      box-shadow:0 12px 40px rgba(201,169,89,0.12);
+      background:rgba(0,0,0,0.3);
+    }
+    
+    .stat-card .number{
+      font-family:'Playfair Display',serif;
+      font-size:52px;
+      font-weight:700;
+      color:var(--gold);
+      line-height:1;
+      margin-bottom:4px;
+      text-shadow:0 0 60px rgba(201,169,89,0.3);
+    }
+    .stat-card .divider{
+      width:30px;
+      height:2px;
+      background:linear-gradient(90deg,var(--gold),transparent);
+      margin:12px auto;
+      border-radius:2px;
+    }
+    .stat-card .label{
+      font-size:14px;
+      color:rgba(255,255,255,0.7);
+      letter-spacing:0.5px;
+      font-weight:400;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-content{
+      max-width:800px;
+      margin:0 auto;
+    }
+    .about-content p{
+      color:var(--text-muted);
+      font-size:16px;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+    .about-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:30px;
+    }
+    .about-tags span{
+      padding:8px 18px;
+      border:1px solid var(--gold-dark);
+      border-radius:100px;
+      font-size:13px;
+      font-weight:500;
+      color:var(--gold);
+      background:rgba(201,169,89,0.05);
+    }
+    .about-highlights{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:40px;
+    }
+    .highlight-card{
+      padding:24px;
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+      min-height:100px;
+    }
+    .highlight-card.bg-photo{
+      background-size:cover !important;
+      background-position:center !important;
+    }
+    .highlight-card.bg-photo::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(10,10,15,0.85) 40%, rgba(10,10,15,0.5) 100%);
+      z-index:0;
+    }
+    .highlight-card.bg-photo .icon,
+    .highlight-card.bg-photo .text{
+      position:relative;
+      z-index:1;
+    }
+    .highlight-card:hover{transform:translateY(-2px);border-color:var(--gold-dark)}
+    .highlight-card .icon{
+      width:40px;height:40px;
+      border-radius:10px;
+      background:rgba(201,169,89,0.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      flex-shrink:0;
+      font-size:16px;
+    }
+    .highlight-card .text h4{font-size:14px;font-weight:600;margin-bottom:4px}
+    .highlight-card .text p{font-size:13px;color:var(--text-muted);line-height:1.5;margin:0}
+
+    /* ===== GALLERY ===== */
+    .photo-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      grid-auto-rows:200px;
+      gap:8px;
+    }
+    .photo-item{
+      border-radius:10px;
+      overflow:hidden;
+      background:linear-gradient(135deg,#1a1a2e,#0d0d1a);
+      background-size:cover !important;
+      background-position:center !important;
+      border:1px solid var(--glass-border);
+      cursor:pointer;
+      transition:var(--transition);
+    }
+    .photo-item:hover{border-color:var(--gold);transform:scale(1.02);box-shadow:0 4px 20px rgba(201,169,89,0.1)}
+    .photo-item.tall{grid-row:span 2}
+    .photo-item.wide{grid-column:span 2}
+    .photo-item.full{grid-column:span 2;grid-row:span 2}
+    @media(max-width:900px){
+      .photo-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    }
+    @media(max-width:600px){
+      .photo-grid{grid-template-columns:1fr 1fr;grid-auto-rows:120px}
+    }
+
+
+
+    /* ===== CONTACT / SOCIAL ===== */
+    .contact-section{
+      text-align:center;
+      padding:80px 24px;
+    }
+    .contact-section h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(28px,4vw,42px);
+      margin-bottom:16px;
+      text-shadow:0 2px 12px rgba(0,0,0,0.6);
+    }
+    .contact-section p{
+      color:rgba(255,255,255,0.85);
+      margin-bottom:30px;
+      font-size:16px;
+      text-shadow:0 2px 8px rgba(0,0,0,0.5);
+    }
+    .social-links{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .social-link{
+      width:52px;height:52px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      text-decoration:none;
+      transition:var(--transition);
+    }
+    .social-link:hover{color:var(--gold);border-color:var(--gold);transform:translateY(-3px)}
+
+    /* ===== FOOTER ===== */
+    footer{
+      position:relative;
+      z-index:1;
+      text-align:center;
+      padding:60px 24px 40px;
+      border-top:1px solid var(--glass-border);
+      color:var(--text-muted);
+      font-size:13px;
+      overflow:hidden;
+    }
+    footer.has-bg{
+      background-size:cover;
+      background-position:center 5%;
+    }
+    footer.has-bg::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.7) 50%, rgba(10,10,15,0.85) 100%);
+      z-index:0;
+    }
+    footer.has-bg>*{
+      position:relative;
+      z-index:1;
+    }
+    footer a{color:var(--gold);text-decoration:none}
+    footer .footer-links{margin-bottom:12px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+    footer .footer-links a{color:var(--text-muted);font-size:13px;transition:var(--transition)}
+    footer .footer-links a:hover{color:var(--gold)}
+
+    /* ===== PROGRESS BAR ===== */
+    #progress-bar{
+      position:fixed;
+      top:64px;left:0;
+      height:2px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-light));
+      z-index:1000;
+      width:0%;
+      transition:width 0.1s linear;
+    }
+
+    /* ===== GLOW EFFECTS ===== */
+    .glow{
+      position:relative;
+    }
+    .glow::after{
+      content:'';
+      position:absolute;
+      inset:-4px;
+      border-radius:inherit;
+      background:inherit;
+      filter:blur(20px);
+      opacity:0;
+      transition:opacity 0.4s;
+      z-index:-1;
+    }
+    .glow:hover::after{opacity:0.5}
+
+    .gold-shimmer{
+      background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 25%,var(--gold) 50%,var(--gold-light) 75%,var(--gold) 100%);
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:shimmer 3s linear infinite;
+    }
+
+    /* ===== ROTATING DISC ===== */
+    @keyframes spin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+    @keyframes spinPause{
+      0%,20%{transform:rotate(0deg)}
+      100%{transform:rotate(360deg)}
+    }
+    .disc-spin{
+      animation:spinPause 8s cubic-bezier(0.4,0,0.2,1) infinite;
+    }
+    .disc-spin.playing{
+      animation:spin 3s linear infinite !important;
+    }
+
+    /* ===== TYPING CURSOR ===== */
+    .typing-cursor::after{
+      content:'|';
+      animation:blink 1s step-end infinite;
+      color:var(--gold);
+      font-weight:300;
+    }
+    @keyframes blink{
+      0%,100%{opacity:1}
+      50%{opacity:0}
+    }
+
+    /* ===== MAGNETIC BUTTON ===== */
+    .magnetic{
+      position:relative;
+      transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ===== FLOATING PARTICLES ===== */
+    .float-particle{
+      position:absolute;
+      width:4px;height:4px;
+      background:var(--gold);
+      border-radius:50%;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    @keyframes floatUp{
+      0%{opacity:0;transform:translateY(0) scale(0)}
+      20%{opacity:0.6;transform:translateY(-20px) scale(1)}
+      100%{opacity:0;transform:translateY(-80px) scale(0)}
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-wrap{
+      overflow:hidden;
+      width:100%;
+      padding:20px 0;
+      background:var(--glass);
+      border-top:1px solid var(--glass-border);
+      border-bottom:1px solid var(--glass-border);
+      position:relative;
+      z-index:1;
+    }
+    .marquee{
+      display:flex;
+      gap:60px;
+      animation:marquee 30s linear infinite;
+      white-space:nowrap;
+    }
+    .marquee span{
+      font-size:14px;
+      color:var(--text-muted);
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+    .marquee span i{color:var(--gold);margin:0 8px}
+    @keyframes marquee{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+
+    /* ===== CARD GLOW ON HOVER ===== */
+    .card-glow{
+      position:relative;
+      overflow:hidden;
+    }
+    .card-glow::before{
+      content:'';
+      position:absolute;
+      top:var(--mouse-y,50%);
+      left:var(--mouse-x,50%);
+      width:0;
+      height:0;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(201,169,89,0.15), transparent 60%);
+      transform:translate(-50%,-50%);
+      transition:width 0.6s, height 0.6s;
+      pointer-events:none;
+    }
+    .card-glow:hover::before{
+      width:400px;
+      height:400px;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(24px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    @keyframes scrollWheel{
+      0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}
+      50%{opacity:0.3;transform:translateX(-50%) translateY(6px)}
+    }
+    @keyframes pulse{
+      0%,100%{opacity:0.6}
+      50%{opacity:1}
+    }
+    @keyframes shimmer{
+      0%{background-position:-200% center}
+      100%{background-position:200% center}
+    }
+    .reveal{
+      opacity:0;
+      transform:translateY(30px);
+      transition:opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      .discography-grid{grid-template-columns:1fr}
+      .album-cover{position:relative;top:0;max-width:300px;margin:0 auto}
+      .booking-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .about-highlights{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:64px;left:0;right:0;
+        background:rgba(10,10,15,0.98);
+        backdrop-filter:blur(20px);
+        flex-direction:column;
+        padding:16px;
+        border-bottom:1px solid var(--glass-border);
+      }
+      .nav-links.open{display:flex}
+      .nav-toggle{display:block}
+      .hero{padding:120px 16px 40px;min-height:90vh}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:1fr}
+      .gallery-item.double{grid-column:span 1}
+      .covers-grid{grid-template-columns:1fr}
+      .booking-links{flex-direction:column}
+      .booking-links a{justify-content:center}
+      .hero-cta{flex-direction:column;width:100%;max-width:280px}
+      .hero-cta .btn{justify-content:center}
+      .section{padding:60px 16px}
+    }
+
+    /* ===== CUSTOM PLAYER ===== */
+    #custom-player{
+      position:fixed;
+      bottom:0;left:0;right:0;
+      z-index:999;
+      background:rgba(10,10,15,0.95);
+      backdrop-filter:blur(20px);
+      border-top:1px solid var(--glass-border);
+      padding:12px 24px;
+      display:none;
+      align-items:center;
+      gap:16px;
+    }
+    #custom-player.active{display:flex}
+    #custom-player .info{min-width:120px}
+    #custom-player .info .track-name{font-size:13px;font-weight:500}
+    #custom-player .info .track-artist{font-size:11px;color:var(--text-muted)}
+    #custom-player .controls{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex:1;
+    }
+    #custom-player .controls button{
+      background:none;
+      border:none;
+      color:var(--text);
+      cursor:pointer;
+      font-size:18px;
+      transition:var(--transition);
+    }
+    #custom-player .controls button:hover{color:var(--gold)}
+    #custom-player .progress-wrap{
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    #custom-player .progress-bar{
+      flex:1;
+      height:4px;
+      background:var(--glass-border);
+      border-radius:2px;
+      cursor:pointer;
+      position:relative;
+    }
+    #custom-player .progress-bar .fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--gold),var(--gold-light));
+      border-radius:2px;
+      width:0%;
+      transition:width 0.1s linear;
+    }
+    #custom-player .progress-bar .thumb{
+      width:12px;height:12px;
+      border-radius:50%;
+      background:var(--gold);
+      position:absolute;
+      top:50%;left:0;
+      transform:translate(-50%,-50%);
+      opacity:0;
+      transition:opacity 0.2s;
+    }
+    #custom-player .progress-bar:hover .thumb{opacity:1}
+    #custom-player .time{font-size:11px;color:var(--text-muted);min-width:35px;text-align:center}
+    #custom-player .close{
+      background:none;border:none;
+      color:var(--text-muted);cursor:pointer;
+      font-size:16px;padding:4px;
+      transition:var(--transition);
+    }
+    #custom-player .close:hover{color:var(--text)}
+    @media(max-width:600px){
+      #custom-player{padding:10px 12px;flex-wrap:wrap}
+      #custom-player .info{min-width:0;flex:1}
+      #custom-player .controls{flex:1 1 100%;order:3}
+    }
+
+    .toast{
+      position:fixed;
+      bottom:100px;
+      left:50%;
+      transform:translateX(-50%) translateY(20px);
+      background:var(--bg3);
+      border:1px solid var(--gold-dark);
+      color:var(--gold);
+      padding:12px 24px;
+      border-radius:10px;
+      font-size:14px;
+      opacity:0;
+      transition:all 0.4s ease;
+      z-index:10000;
+      pointer-events:none;
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* ===== FLOATING MUSIC PLAYER ===== */
+    #music-float{
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      z-index:9999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+    }
+    #music-toggle{
+      width:56px;height:56px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      border:none;
+      color:#000;
+      font-size:22px;
+      cursor:pointer;
+      box-shadow:0 4px 20px rgba(201,169,89,0.3);
+      transition:all 0.3s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    #music-toggle:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(201,169,89,0.5)}
+    #music-toggle.playing{animation:pulse 1.5s infinite}
+    #music-float .track-info{
+      background:rgba(10,10,15,0.9);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--glass-border);
+      border-radius:10px;
+      padding:8px 14px;
+      font-size:12px;
+      white-space:nowrap;
+      opacity:0;
+      transform:translateY(10px);
+      transition:all 0.3s ease;
+      pointer-events:none;
+    }
+    #music-float .track-info.show{opacity:1;transform:translateY(0)}
+    #music-float .track-info .name{color:var(--gold);font-weight:500}
+    #music-float .track-info .artist{color:var(--text-muted)}
+    .pulse-ring{
+      position:absolute;
+      inset:-4px;
+      border-radius:50%;
+      border:2px solid var(--gold);
+      opacity:0;
+      animation:pulseRing 2s infinite;
+    }
+    #music-toggle.playing .pulse-ring{opacity:1}
+    @keyframes pulseRing{
+      0%{transform:scale(1);opacity:0.6}
+      100%{transform:scale(1.4);opacity:0}
+    }
+    @media(max-width:600px){
+      #music-float{bottom:20px;right:16px}
+      #music-toggle{width:48px;height:48px;font-size:18px}
+    }
+
+    /* ===== MEDIA SECTION ===== */
+    .media-tabs{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-bottom:40px;
+    }
+    .media-tab{
+      padding:10px 24px;
+      border:1px solid var(--glass-border);
+      border-radius:100px;
+      background:var(--glass);
+      color:var(--text-muted);
+      font-size:14px;
+      cursor:pointer;
+      transition:var(--transition);
+      font-family:'Inter',sans-serif;
+    }
+    .media-tab:hover{border-color:var(--gold-dark);color:var(--gold)}
+    .media-tab.active{background:rgba(201,169,89,0.1);border-color:var(--gold);color:var(--gold)}
+    .media-content{display:none}
+    .media-content.active{display:block}
+    .media-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      gap:12px;
+    }
+    .media-card{
+      background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      border-radius:14px;
+      padding:18px;
+      transition:var(--transition);
+      cursor:pointer;
+      position:relative;
+    }
+    .media-card:hover{
+      border-color:var(--gold-dark);
+      transform:translateY(-3px) scale(1.01);
+      box-shadow:0 8px 30px rgba(201,169,89,0.08);
+      background:rgba(201,169,89,0.04);
+    }
+    .media-card .icon{font-size:28px;margin-bottom:8px;opacity:0.6}
+    .media-card .name{font-size:14px;font-weight:500;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .media-card .meta{font-size:11px;color:var(--text-muted)}
+    .media-card audio{width:100%;height:32px;margin-top:8px;border-radius:6px}
+    .media-card audio::-webkit-media-controls-panel{background:var(--bg2)}
+
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      background:rgba(0,0,0,0.92);
+      backdrop-filter:blur(20px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      cursor:pointer;
+    }
+    #lightbox.active{display:flex}
+    #lightbox img{
+      max-width:90vw;
+      max-height:90vh;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+      object-fit:contain;
+    }
+    #lightbox .close-lb{
+      position:absolute;
+      top:20px;right:30px;
+      color:#fff;
+      font-size:36px;
+      cursor:pointer;
+      opacity:0.6;
+      transition:opacity 0.3s;
+      background:none;
+      border:none;
+    }
+    #lightbox .close-lb:hover{opacity:1}
+
+    /* ===== VIDEO GRID ===== */
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:20px;
+    }
+    .video-card{
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      overflow:hidden;
+      transition:var(--transition);
+    }
+    .video-card:hover{border-color:var(--gold-dark);transform:translateY(-4px);box-shadow:0 8px 30px rgba(201,169,89,0.08)}
+    .video-wrapper{
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%;
+      background:#000;
+    }
+    .video-wrapper iframe{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+    }
+    .video-info{
+      padding:14px 16px;
+    }
+    .video-title{
+      font-size:15px;
+      font-weight:600;
+      margin-bottom:2px;
+    }
+    .video-meta{
+      font-size:12px;
+      color:var(--text-muted);
+    }
+
+    .video-cta{
+      text-align:center;
+      margin-top:10px;
+    }
+
+    /* ===== STREAMING SECTION ===== */
+    .streaming-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      gap:12px;
+      max-width:700px;
+      margin:0 auto;
+    }
+    .streaming-card{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:16px 20px;
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      text-decoration:none;
+      color:var(--text);
+      transition:var(--transition);
+    }
+    .streaming-card:hover{border-color:var(--gold-dark);transform:translateY(-2px);background:rgba(201,169,89,0.04)}
+    .streaming-card .s-icon{
+      width:40px;height:40px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      flex-shrink:0;
+    }
+    .streaming-card .s-info{
+      flex:1;
+      min-width:0;
+    }
+    .streaming-card .s-info .s-name{
+      font-size:14px;
+      font-weight:600;
+    }
+    .streaming-card .s-info .s-desc{
+      font-size:11px;
+      color:var(--text-muted);
+    }
+    .spotify-bg{background:#1DB954;color:#000}
+    .applemusic-bg{background:linear-gradient(135deg,#fc3c44,#fa233b);color:#fff}
+    .yandex-bg{background:#FFCC00;color:#000}
+    .youtube-bg{background:#FF0000;color:#fff}
+    .vk-bg{background:#0077FF;color:#fff}
+    .boom-bg{background:#FD1792;color:#fff}
+
+    /* ===== CAREER CAROUSEL ===== */
+    .career-carousel{
+      position:relative;
+      max-width:100%;
+      margin:0 auto;
+      overflow:hidden;
+      padding:0 40px;
+    }
+    .career-track{
+      display:flex;
+      gap:20px;
+      transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      cursor:grab;
+    }
+    .career-track.dragging{cursor:grabbing;transition:none}
+    .career-slide{
+      min-width:320px;
+      max-width:380px;
+      flex-shrink:0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:var(--bg2);
+      border:1px solid var(--glass-border);
+      transition:var(--transition);
+    }
+    .career-slide:hover{border-color:var(--gold-dark);transform:translateY(-4px);box-shadow:0 12px 40px rgba(201,169,89,0.08)}
+    .career-slide .slide-img{
+      width:100%;
+      height:240px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .career-slide .slide-img .slide-year{
+      position:absolute;
+      top:16px;left:16px;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(8px);
+      padding:6px 14px;
+      border-radius:6px;
+      font-family:'Playfair Display',serif;
+      font-size:18px;
+      font-weight:700;
+      color:var(--gold);
+    }
+    .career-slide .slide-body{
+      padding:20px;
+    }
+    .career-slide .slide-body h4{
+      font-size:16px;
+      font-weight:600;
+      margin-bottom:6px;
+      color:var(--gold-light);
+    }
+    .career-slide .slide-body p{
+      font-size:13px;
+      color:var(--text-muted);
+      line-height:1.6;
+    }
+    .carousel-nav{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:30px;
+    }
+    .carousel-nav button{
+      width:44px;height:44px;
+      border-radius:50%;
+      border:1px solid var(--glass-border);
+      background:var(--glass);
+      color:var(--text);
+      cursor:pointer;
+      font-size:16px;
+      transition:var(--transition);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .carousel-nav button:hover{background:rgba(201,169,89,0.1);border-color:var(--gold);color:var(--gold)}
+    .carousel-dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:16px;
+    }
+    .carousel-dots .dot{
+      width:8px;height:8px;
+      border-radius:50%;
+      background:var(--glass-border);
+      cursor:pointer;
+      transition:var(--transition);
+      border:none;
+    }
+    .carousel-dots .dot.active{background:var(--gold);width:24px;border-radius:4px}
+    @media(max-width:600px){
+      .career-carousel{padding:0 16px}
+      .career-slide{min-width:260px}
+      .career-slide .slide-img{height:180px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PARTICLES -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar"></div>
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
+
+  <!-- FLOATING MUSIC PLAYER -->
+  <div id="music-float">
+    <button id="music-toggle" onclick="toggleMusic()" title="Play/Pause">
+      <div class="pulse-ring"></div>
+      <i class="fas fa-play" id="musicToggleIcon"></i>
+    </button>
+    <div class="track-info" id="musicTrackInfo">
+      <div class="name" id="musicTrackName">Lose Control</div>
+      <div class="artist">Arsen Bekirov</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Arsen <span>Bekirov</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#music">Музыка</a>
+      <a href="#listen">Слушать</a>
+      <a href="#career">Карьера</a>
+      <a href="#about">Биография</a>
+      <a href="#media">Медиа</a>
+      <a href="#booking">Заказать</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg">
+      <source src="media/bg/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-badge"><i class="fas fa-star"></i> Заслуженный артист Крыма и Татарстана</div>
+    <h1>
+      <span class="gold gold-shimmer">Арсен</span><br>
+      <span class="gold-light">Бекиров</span>
+    </h1>
+    <p class="subtitle typing-cursor" id="typing-text"></p>
+    <div class="hero-cta">
+      <a href="#music" class="btn btn-primary magnetic glow"><i class="fas fa-headphones"></i> Слушать</a>
+      <a href="#booking" class="btn btn-outline magnetic glow"><i class="fas fa-calendar"></i> Заказать выступление</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="mouse"></div>
+      <span>Листай</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span><i class="fas fa-star"></i> Заслуженный артист Крыма</span>
+      <span><i class="fas fa-star"></i> Заслуженный артист Татарстана</span>
+      <span><i class="fas fa-music"></i> Qirim EP 2025</span>
+      <span><i class="fas fa-trophy"></i> QARADENIZ Production 2025</span>
+      <span><i class="fas fa-globe"></i> 6 языков</span>
+      <span><i class="fas fa-star"></i> Заслуженный артист Крыма</span>
+      <span><i class="fas fa-star"></i> Заслуженный артист Татарстана</span>
+      <span><i class="fas fa-music"></i> Qirim EP 2025</span>
+      <span><i class="fas fa-trophy"></i> QARADENIZ Production 2025</span>
+      <span><i class="fas fa-globe"></i> 6 языков</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="section with-photo" style="background-image:url('media/bg/IMG_1866.JPG');background-position:35% 40%">
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="number" data-count="2">0</div><div class="divider"></div><div class="label">Заслуженных звания</div></div>
+      <div class="stat-card reveal"><div class="number" data-count="6">0</div><div class="divider"></div><div class="label">Языков исполнения</div></div>
+      <div class="stat-card reveal"><div class="number" data-count="9">0</div><div class="divider"></div><div class="label">Треков Qirim EP</div></div>
+      <div class="stat-card reveal"><div class="number" data-count="1">0</div><div class="divider"></div><div class="label">Премия QARADENIZ</div></div>
+    </div>
+  </section>
+
+  <!-- DISCOGRAPHY -->
+  <section class="section section-bg" id="music" style="background-image:url('media/bg/copy_78B5CF29-3576-4A42-9DDE-733C86BF9E62.JPEG')">
+    <div class="section-header reveal">
+      <div class="label">Дискография</div>
+      <h2>Qirim EP</h2>
+      <p>Дебютный EP, вдохновлённый крымскотатарской культурой и современным этно-поп звучанием</p>
+    </div>
+    <div class="discography-grid">
+      <div class="album-cover reveal" style="background-image:url('media/bg/qirim-ep-cover.JPEG');background-size:cover;background-position:center;border:1px solid var(--gold-dark)">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.15) 100%);z-index:0"></div>
+        <div class="icon disc-spin" id="albumDisc" style="position:relative;z-index:1"><i class="fas fa-compact-disc"></i></div>
+        <h3 style="position:relative;z-index:1">Qirim EP</h3>
+        <p style="position:relative;z-index:1">2025 · Этно-поп</p>
+        <div style="margin-top:20px;display:flex;gap:8px;position:relative;z-index:1">
+          <span style="padding:4px 12px;border:1px solid var(--gold-dark);border-radius:20px;font-size:11px;color:var(--gold);background:rgba(0,0,0,0.5)">Премия QARADENIZ</span>
+          <span style="padding:4px 12px;border:1px solid var(--glass-border);border-radius:20px;font-size:11px;color:var(--text-muted);background:rgba(0,0,0,0.5)">2025</span>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:10px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center">
+          <a href="https://music.youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" target="_blank" style="width:44px;height:44px;border-radius:50%;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;transition:var(--transition);opacity:0.9"><i class="fab fa-youtube"></i></a>
+          <a href="javascript:void(0)" onclick="showToast('🎵 Скоро на Spotify!')" style="width:44px;height:44px;border-radius:50%;background:#1DB954;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;transition:var(--transition);opacity:0.9"><i class="fab fa-spotify"></i></a>
+          <a href="javascript:void(0)" onclick="showToast('🎵 Скоро на Apple Music!')" style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#fc3c44,#fa233b);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;transition:var(--transition);opacity:0.9"><i class="fab fa-apple"></i></a>
+        </div>
+      </div>
+      <div class="track-list reveal">
+        <div class="track-item" data-track="0" onclick="playTrack('Qirim EP', 'Maneler', 'media/audio/ArsenBekirov_MAneler.mp3', 0)">
+          <div class="num">01</div>
+          <div class="info"><div class="name">Maneler</div><div class="meta">Этно-поп</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Maneler','media/audio/ArsenBekirov_MAneler.mp3',0)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="1" onclick="playTrack('Qirim EP', 'Seni Seven', 'media/audio/seni-seven.mp3', 1)">
+          <div class="num">02</div>
+          <div class="info"><div class="name">Seni Seven</div><div class="meta">Поп-баллада · Лауреат QARADENIZ 2025</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Seni Seven','media/audio/seni-seven.mp3',1)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="2" onclick="playTrack('Qirim EP', 'INAN', 'media/audio/inan.mp3', 2)">
+          <div class="num">03</div>
+          <div class="info"><div class="name">INAN</div><div class="meta">Этно-соул / фьюжн</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','INAN','media/audio/inan.mp3',2)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="3" onclick="playTrack('Qirim EP', 'Elya Kozlum', 'media/audio/elya-kozlum.mp3', 3)">
+          <div class="num">04</div>
+          <div class="info"><div class="name">Elya Kozlum</div><div class="meta">Этно-баллада</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Elya Kozlum','media/audio/elya-kozlum.mp3',3)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="4" onclick="playTrack('Qirim EP', 'Сенсин', 'media/audio/sensin.mp3', 4)">
+          <div class="num">05</div>
+          <div class="info"><div class="name">Сенсин</div><div class="meta">Авторский трек</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Сенсин','media/audio/sensin.mp3',4)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="5" onclick="playTrack('Qirim EP', 'Сени хатырладыкъча', 'media/audio/seni-hatyrladikcha.mp3', 5)">
+          <div class="num">06</div>
+          <div class="info"><div class="name">Сени хатырладыкъча</div><div class="meta">Авторский трек</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Сени хатырладыкъча','media/audio/seni-hatyrladikcha.mp3',5)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="6" onclick="playTrack('Qirim EP', 'Dance ET', 'media/audio/dance-et-2026.mp3', 6)">
+          <div class="num">07</div>
+          <div class="info"><div class="name">Dance ET</div><div class="meta">feat. Ясмина · 2026</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Dance ET','media/audio/dance-et-2026.mp3',6)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="7" onclick="playTrack('Qirim EP', 'Тек Сени Севеджем', 'media/audio/tek-seni-sevedzhem.mp3', 7)">
+          <div class="num">08</div>
+          <div class="info"><div class="name">Тек Сени Севеджем</div><div class="meta">Авторский трек · 2025</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Тек Сени Севеджем','media/audio/tek-seni-sevedzhem.mp3',7)"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="track-item" data-track="8" onclick="playTrack('Qirim EP', 'Къызым', 'media/audio/qizim-song.mp3', 8)">
+          <div class="num">09</div>
+          <div class="info"><div class="name">Къызым</div><div class="meta">Авторский трек</div></div>
+          <button class="play-btn" onclick="event.stopPropagation();playTrack('Qirim EP','Къызым','media/audio/qizim-song.mp3',8)"><i class="fas fa-play"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERS -->
+  <section class="section with-photo" style="background-image:url('media/bg/covers-bg.jpg');padding-top:40px">
+    <div class="section-header reveal">
+      <div class="label">Каверы</div>
+      <h2>Мировые хиты</h2>
+      <p>Уникальные переработки с этническими элементами</p>
+    </div>
+    <div class="covers-grid">
+      <div class="cover-card reveal">
+        <div class="name">🎵 Lose Control <span style="color:var(--text-muted);font-weight:400">— Teddy Swims</span></div>
+        <audio controls preload="none" src="Covers/Lose%20control.mp3"></audio>
+      </div>
+      <div class="cover-card reveal">
+        <div class="name">🎵 Portofino <span style="color:var(--text-muted);font-weight:400">— Andrea Bocelli</span></div>
+        <audio controls preload="none" src="Covers/Portofino%20Arsen.mp3"></audio>
+      </div>
+      <div class="cover-card reveal">
+        <div class="name">🎵 Wave <span style="color:var(--text-muted);font-weight:400">— Fast Boy, Raf</span></div>
+        <audio controls preload="none" src="Covers/wave+.mp3"></audio>
+      </div>
+      <div class="cover-card reveal">
+        <div class="name">🎵 Blinding Lights <span style="color:var(--text-muted);font-weight:400">— The Weeknd</span></div>
+        <audio controls preload="none" src="Covers/Weekend%202.mp3"></audio>
+      </div>
+      <div class="cover-card reveal">
+        <div class="name">🎵 Wind of Change <span style="color:var(--text-muted);font-weight:400">— Scorpions</span></div>
+        <audio controls preload="none" src="Covers/wind%20of%20change.mp3"></audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section with-photo" id="about" style="background-image:url('media/bg/0FD5B334-9F6A-471F-A9F2-63D0022ED2E7.PNG');background-position:center 20%;padding:120px 24px">
+    <div class="section-header reveal">
+      <div class="label">Биография</div>
+      <h2>Об артисте</h2>
+    </div>
+    <div class="about-content reveal" style="text-align:center;max-width:600px">
+      <p style="font-size:15px;line-height:1.8">
+        Арсен Бекиров — <strong>Заслуженный артист Республики Крым и Татарстана</strong>. 
+        Начал путь в 5 лет, поёт на 6 языках. В 2025 выпустил дебютный EP «Qirim EP» 
+        и стал лауреатом премии <strong>QARADENIZ Production</strong>.
+      </p>
+      <div class="about-tags" style="justify-content:center">
+        <span>🎤 Вокал</span>
+        <span>🌍 6 языков</span>
+        <span>🏆 QARADENIZ 2025</span>
+        <span>📀 9 треков</span>
+      </div>
+      <div class="about-highlights" style="max-width:500px;margin:30px auto 0">
+        <div class="highlight-card bg-photo" style="background-image:url('media/bg/KATE3108.JPG')">
+          <div class="icon"><i class="fas fa-trophy"></i></div>
+          <div class="text">
+            <h4>Заслуженный артист</h4>
+            <p>Крым · Татарстан</p>
+          </div>
+        </div>
+        <div class="highlight-card bg-photo" style="background-image:url('media/bg/IMG_4702.JPG')">
+          <div class="icon"><i class="fas fa-award"></i></div>
+          <div class="text">
+            <h4>Лауреат QARADENIZ</h4>
+            <p>За лучший клип «Seni Seven»</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STREAMING -->
+  <section class="section with-photo" id="listen" style="background-image:url('media/bg/IMG_5987.JPG')">
+    <div class="section-header reveal">
+      <div class="label">Слушать</div>
+      <h2>На всех площадках</h2>
+      <p>Моя музыка доступна на всех популярных стриминг-сервисах</p>
+    </div>
+    <div class="streaming-grid reveal">
+      <a href="https://music.youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" target="_blank" class="streaming-card">
+        <div class="s-icon youtube-bg"><i class="fab fa-youtube"></i></div>
+        <div class="s-info">
+          <div class="s-name">YouTube Music</div>
+          <div class="s-desc">Смотреть клипы и слушать</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/mr.arsenbekirov/" target="_blank" class="streaming-card">
+        <div class="s-icon" style="background:linear-gradient(135deg,#833AB4,#FD1D1D);color:#fff"><i class="fab fa-instagram"></i></div>
+        <div class="s-info">
+          <div class="s-name">Instagram</div>
+          <div class="s-desc">Reels, Stories, анонсы</div>
+        </div>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('🎵 Треки скоро появятся на всех площадках! Следи в Instagram @mr.arsenbekirov');return false" class="streaming-card">
+        <div class="s-icon spotify-bg"><i class="fab fa-spotify"></i></div>
+        <div class="s-info">
+          <div class="s-name">Spotify</div>
+          <div class="s-desc">Скоро</div>
+        </div>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('🎵 Треки скоро появятся на всех площадках! Следи в Instagram @mr.arsenbekirov');return false" class="streaming-card">
+        <div class="s-icon applemusic-bg"><i class="fas fa-music"></i></div>
+        <div class="s-info">
+          <div class="s-name">Apple Music</div>
+          <div class="s-desc">Скоро</div>
+        </div>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('🎵 Треки скоро появятся на всех площадках! Следи в Instagram @mr.arsenbekirov');return false" class="streaming-card">
+        <div class="s-icon yandex-bg"><i class="fas fa-play"></i></div>
+        <div class="s-info">
+          <div class="s-name">Яндекс Музыка</div>
+          <div class="s-desc">Скоро</div>
+        </div>
+      </a>
+      <a href="javascript:void(0)" onclick="showToast('🎵 Треки скоро появятся на всех площадках! Следи в Instagram @mr.arsenbekirov');return false" class="streaming-card">
+        <div class="s-icon vk-bg"><i class="fab fa-vk"></i></div>
+        <div class="s-info">
+          <div class="s-name">VK Музыка</div>
+          <div class="s-desc">Скоро</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CAREER CAROUSEL -->
+  <section class="section" id="career">
+    <div class="section-header reveal">
+      <div class="label">Карьера</div>
+      <h2>Творческий путь</h2>
+      <p>Ключевые вехи</p>
+    </div>
+    <div class="career-carousel reveal" id="careerCarousel">
+      <div class="career-track" id="careerTrack">
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/IMG_0478.jpg')">
+            <span class="slide-year">5 лет</span>
+          </div>
+          <div class="slide-body">
+            <h4>🎤 Начало пути</h4>
+            <p>Первый выход на сцену. С пяти лет Арсен начал заниматься вокалом и выступать.</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/IMG_1580.JPG');background-position:center 30%">
+            <span class="slide-year">Ансамбль</span>
+          </div>
+          <div class="slide-body">
+            <h4>🎭 Солист ансамбля «Qirim»</h4>
+            <p>Солист крымскотатарского ансамбля «Qirim» — представляет культуру на сценах всего мира.</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/IMG_5946.PNG');background-position:center 15%">
+            <span class="slide-year">Заслуженный</span>
+          </div>
+          <div class="slide-body">
+            <h4>⭐ Республика Крым</h4>
+            <p>Почётное звание «Заслуженный артист Республики Крым» за вклад в развитие крымскотатарской культуры.</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/dsc-4275.jpg');background-position:center 25%">
+            <span class="slide-year">Заслуженный</span>
+          </div>
+          <div class="slide-body">
+            <h4>⭐ Республика Татарстан</h4>
+            <p>Удостоен звания «Заслуженный артист Республики Татарстан» — признание на федеральном уровне.</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/IMG_5987.JPG')">
+            <span class="slide-year">2025</span>
+          </div>
+          <div class="slide-body">
+            <h4>💿 Qirim EP</h4>
+            <p>Дебютный EP — 6 треков этно-попа, вдохновлённых крымскотатарской культурой.</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/IMG_4702.JPG');background-position:center 30%">
+            <span class="slide-year">2025</span>
+          </div>
+          <div class="slide-body">
+            <h4>🏆 QARADENIZ Production</h4>
+            <p>Лауреат премии за лучший клип на песню «Seni Seven».</p>
+          </div>
+        </div>
+        <div class="career-slide">
+          <div class="slide-img" style="background-image:url('media/bg/202DB526-3ACA-48D5-986A-15939BD86B8B.JPG')">
+            <span class="slide-year">2026</span>
+          </div>
+          <div class="slide-body">
+            <h4>🚀 Новые релизы</h4>
+            <p>Работа над новым материалом, коллаборации, концерты.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-nav reveal">
+      <button onclick="slideCareer(-1)" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="slideCareer(1)" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="carousel-dots reveal" id="carouselDots"></div>
+  </section>
+
+  <!-- MEDIATHEQUE -->
+  <section class="section" id="media" style="position:relative;overflow:hidden;border-radius:var(--radius)">
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.45) saturate(0.85)">
+      <source src="media/bg/media-bg-video.mp4" type="video/mp4">
+      <source src="media/bg/media-bg-video.MOV" type="video/quicktime">
+    </video>
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.55) 100%);z-index:1;pointer-events:none"></div>
+    <div style="position:relative;z-index:2">
+    <div class="section-header reveal">
+      <div class="label">Медиатека</div>
+      <h2>Записи, фото, видео</h2>
+      <p>Мои аудио-записи, живые выступления и фотографии</p>
+    </div>
+    <div class="media-tabs reveal">
+      <button class="media-tab active" onclick="switchMediaTab('audio',this)">🎵 Аудио</button>
+      <button class="media-tab" onclick="switchMediaTab('photos',this)">📸 Фото</button>
+      <button class="media-tab" onclick="switchMediaTab('videos',this)">🎬 Видео</button>
+    </div>
+    <div class="media-content active" id="media-audio">
+      <div class="section-header" style="margin-bottom:24px">
+        <div class="label" style="font-size:10px">Qirim EP</div>
+        <h2 style="font-size:24px">Авторские треки</h2>
+      </div>
+      <div class="media-grid" style="margin-bottom:40px">
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Maneler</div>
+          <div class="meta">Qirim EP · Этно-поп</div>
+          <audio controls preload="none" src="media/audio/ArsenBekirov_MAneler.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Seni Seven</div>
+          <div class="meta">Qirim EP · Лауреат QARADENIZ 2025</div>
+          <audio controls preload="none" src="media/audio/seni-seven.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">INAN</div>
+          <div class="meta">Qirim EP · Этно-соул / фьюжн</div>
+          <audio controls preload="none" src="media/audio/inan.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Elya Kozlum</div>
+          <div class="meta">Qirim EP · Этно-баллада</div>
+          <audio controls preload="none" src="media/audio/elya-kozlum.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Сенсин</div>
+          <div class="meta">Qirim EP · Авторский трек</div>
+          <audio controls preload="none" src="media/audio/sensin.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Сени хатырладыкъча</div>
+          <div class="meta">Qirim EP · Авторский трек</div>
+          <audio controls preload="none" src="media/audio/seni-hatyrladikcha.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Dance ET</div>
+          <div class="meta">Qirim EP · feat. Ясмина · 2026</div>
+          <audio controls preload="none" src="media/audio/dance-et-2026.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Тек Сени Севеджем</div>
+          <div class="meta">Qirim EP · Авторский трек</div>
+          <audio controls preload="none" src="media/audio/tek-seni-sevedzhem.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Къызым</div>
+          <div class="meta">Qirim EP · Авторский трек</div>
+          <audio controls preload="none" src="media/audio/qizim-song.mp3"></audio>
+        </div>
+      </div>
+      <div class="section-header" style="margin-bottom:24px">
+        <div class="label" style="font-size:10px">Синглы</div>
+        <h2 style="font-size:24px">Авторские треки</h2>
+      </div>
+      <div class="media-grid" style="margin-bottom:40px">
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Эбедий севги</div>
+          <div class="meta">Сингл · 2017</div>
+          <audio controls preload="none" src="media/audio/ebediy-sevgi.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Oyna Guzel</div>
+          <div class="meta">Сингл</div>
+          <audio controls preload="none" src="media/audio/oyna-guzel.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Aman Yar</div>
+          <div class="meta">Сингл</div>
+          <audio controls preload="none" src="media/audio/aman-yar.mp3"></audio>
+        </div>
+      </div>
+      <div class="section-header" style="margin-bottom:24px">
+        <div class="label" style="font-size:10px">Каверы</div>
+        <h2 style="font-size:24px">Мировые хиты</h2>
+      </div>
+      <div class="media-grid">
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Lose Control</div>
+          <div class="meta">Teddy Swims cover</div>
+          <audio controls preload="none" src="Covers/Lose%20control.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Portofino</div>
+          <div class="meta">Andrea Bocelli cover</div>
+          <audio controls preload="none" src="Covers/Portofino%20Arsen.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Blinding Lights</div>
+          <div class="meta">The Weeknd cover</div>
+          <audio controls preload="none" src="Covers/Weekend%202.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Wind of Change</div>
+          <div class="meta">Scorpions cover</div>
+          <audio controls preload="none" src="Covers/wind%20of%20change.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Wave</div>
+          <div class="meta">Fast Boy, Raf cover</div>
+          <audio controls preload="none" src="Covers/wave+.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Ain't No Sunshine</div>
+          <div class="meta">Bill Withers cover</div>
+          <audio controls preload="none" src="media/audio/aint%20sunshine.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎤</div>
+          <div class="name">Believe</div>
+          <div class="meta">Cher cover</div>
+          <audio controls preload="none" src="media/audio/believe.mp3"></audio>
+        </div>
+        <div class="media-card reveal">
+          <div class="icon">🎵</div>
+          <div class="name">Aisha</div>
+          <div class="meta">Кавер</div>
+          <audio controls preload="none" src="media/audio/aisha.mp3"></audio>
+        </div>
+
+
+
+      </div>
+    </div>
+    <div class="media-content" id="media-photos">
+      <div class="photo-grid">
+        <div class="photo-item tall reveal" style="background-image:url('media/bg/IMG_4818.JPG')" onclick="openLightbox('media/bg/IMG_4818.JPG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_4705.JPG')" onclick="openLightbox('media/bg/IMG_4705.JPG')"></div>
+        <div class="photo-item wide reveal" style="background-image:url('media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg')" onclick="openLightbox('media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_4710.JPG')" onclick="openLightbox('media/bg/IMG_4710.JPG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_5987.JPG')" onclick="openLightbox('media/bg/IMG_5987.JPG')"></div>
+        <div class="photo-item tall reveal" style="background-image:url('media/bg/KATE3108.JPG')" onclick="openLightbox('media/bg/KATE3108.JPG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_4700.JPG')" onclick="openLightbox('media/bg/IMG_4700.JPG')"></div>
+        <div class="photo-item wide reveal" style="background-image:url('media/bg/IMG_4702.JPG')" onclick="openLightbox('media/bg/IMG_4702.JPG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/gemini-bg.png')" onclick="openLightbox('media/bg/gemini-bg.png')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/1766602623307-019b51a3-6776-7e61-8212-db601e63e53f.png')" onclick="openLightbox('media/bg/1766602623307-019b51a3-6776-7e61-8212-db601e63e53f.png')"></div>
+        <div class="photo-item wide reveal" style="background-image:url('media/bg/IMG_1866.JPG')" onclick="openLightbox('media/bg/IMG_1866.JPG')"></div>
+        <div class="photo-item tall reveal" style="background-image:url('media/bg/IMG_5946.PNG')" onclick="openLightbox('media/bg/IMG_5946.PNG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/acaa-bg.JPG')" onclick="openLightbox('media/bg/acaa-bg.JPG')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/tatarstan-bg.jpg')" onclick="openLightbox('media/bg/tatarstan-bg.jpg')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_0478.jpg')" onclick="openLightbox('media/bg/IMG_0478.jpg')"></div>
+        <div class="photo-item reveal" style="background-image:url('media/bg/IMG_1580.JPG')" onclick="openLightbox('media/bg/IMG_1580.JPG')"></div>
+      </div>
+    </div>
+    <div class="media-content" id="media-videos">
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/UaJEpftHtjI" title="Qızım" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Qızım</div>
+            <div class="video-meta">Авторская песня · Новый релиз</div>
+            <a href="downloads/qizim-video.mp4" download class="btn btn-outline" style="margin-top:8px;padding:8px 16px;font-size:12px"><i class="fas fa-download"></i> Скачать видео (34 МБ)</a>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/1W9FES4LTc8" title="Inan (Live)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Inan (Live)</div>
+            <div class="video-meta">Этно-соул · Live выступление</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/_R1rVqpNtrM" title="Seni Seven" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">🏆 Seni Seven</div>
+            <div class="video-meta">Лауреат премии QARADENIZ Production 2025</div>
+            <a href="https://youtu.be/_R1rVqpNtrM" target="_blank" class="btn btn-primary" style="margin-top:8px;padding:8px 16px;font-size:12px"><i class="fab fa-youtube"></i> Смотреть на YouTube</a>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/_D5KmJTUN6M" title="Maneler" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Maneler</div>
+            <div class="video-meta">Этно-поп · Официальное видео</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/XM7Dd-KEY9c" title="Къар тюбюнде" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Къар тюбюнде</div>
+            <div class="video-meta">feat. Сервер Какура & Аблязиз Велиев · Премьера</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/KnWpx2s5xg4" title="Çifte teli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Çifte teli</div>
+            <div class="video-meta">Традиционное исполнение</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/ZzH5Nvvx-j8" title="Nazli nazli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Nazli nazli</div>
+            <div class="video-meta">Arsen Bekirov · Авторская песня</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/RYGBcbywzrs" title="Чифте тели" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Чифте тели (Две струны)</div>
+            <div class="video-meta">Arsen Bekirov · Традиционное исполнение</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Sst-k4IP3Wc" title="Сув акъар тыныкъ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Сув акъар тыныкъ</div>
+            <div class="video-meta">Arsen Bekirov · «Тихо течет вода»</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/55AdRWcej2M" title="Inan (Live)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Inan (Live)</div>
+            <div class="video-meta">Arsen Bekirov · Этно-соул · Live</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/OylXH5o5i44" title="Эля козьлюм" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Эля козьлюм</div>
+            <div class="video-meta">Arsen Bekirov & Айсар такъымы</div>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/U39CNeJQyD8" title="Nazife" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Nazife</div>
+            <div class="video-meta">Arsen Bekirov · Авторская песня</div>
+          </div>
+        </div>
+      </div>
+      <div class="video-cta reveal">
+        <a href="https://www.youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" target="_blank" class="btn btn-outline" style="margin-top:20px">
+          <i class="fab fa-youtube"></i> Все видео на YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="section with-photo" id="booking" style="background-image:url('media/bg/IMG_5870.PNG');text-align:center;max-width:700px">
+    <div class="section-header reveal">
+      <div class="label">Бронирование</div>
+      <h2>Заказать выступление</h2>
+      <p style="max-width:600px;text-shadow:0 2px 8px rgba(0,0,0,0.5);color:rgba(255,255,255,0.85)">Сделайте своё мероприятие незабываемым</p>
+    </div>
+    <div class="reveal" style="margin-bottom:30px">
+      <div style="color:rgba(255,255,255,0.8);font-size:15px;text-shadow:0 2px 8px rgba(0,0,0,0.5)">Свадьбы · Корпоративы · Частные мероприятия · Концерты</div>
+    </div>
+    <div class="reveal" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+      <a href="https://wa.me/79780525045" class="btn" style="background:#25D366;color:#fff;padding:16px 40px;font-size:16px" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/NikosKworkAssistantBot" class="btn" style="background:#0088cc;color:#fff;padding:16px 40px;font-size:16px" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+    <div class="reveal" style="margin-top:30px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+      <a href="tel:+79780525045" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:15px;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,0.5)"><i class="fas fa-phone" style="color:var(--gold)"></i> +7 (978) 05-25-045</a>
+      <a href="https://www.instagram.com/mr.arsenbekirov" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;font-size:15px;display:flex;align-items:center;gap:8px;text-shadow:0 2px 8px rgba(0,0,0,0.5)"><i class="fab fa-instagram" style="color:var(--gold)"></i> @mr.arsenbekirov</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section with-photo" id="contact" style="background-image:url('media/bg/IMG_5867.PNG');background-position:center 10%;border-radius:var(--radius);max-width:1100px;margin:0 auto;padding:80px 24px">
+    <h2 class="reveal">Связаться</h2>
+    <p class="reveal">Буду рад новым знакомствам, коллаборациям и проектам</p>
+    <div class="social-links reveal">
+      <a href="https://www.instagram.com/mr.arsenbekirov" class="social-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" class="social-link" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://t.me/NikosKworkAssistantBot" class="social-link" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/79780525045" class="social-link" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+79780525045" class="social-link" target="_blank" title="Телефон"><i class="fas fa-phone"></i></a>
+      <a href="mailto:mr.arsenbekirov@mail.ru" class="social-link" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="has-bg" style="background-image:url('media/bg/0FD5B334-9F6A-471F-A9F2-63D0022ED2E7.PNG')">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:24px">
+      <img src="media/bg/qr-site.png" alt="QR-код сайта" style="width:100px;height:100px;border-radius:10px;border:1px solid var(--gold-dark);opacity:0.9;transition:var(--transition)" onclick="openLightbox('media/bg/qr-site.png')">
+      <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.5px">Сканируй QR-код чтобы открыть сайт</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:20px;margin-bottom:24px">
+      <a href="https://www.instagram.com/mr.arsenbekirov" target="_blank" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:var(--transition)"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/channel/UCzDxb1LigtGbknZIN1zOO7Q" target="_blank" style="width:56px;height:56px;border-radius:50%;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:var(--transition)"><i class="fab fa-youtube"></i></a>
+      <a href="https://t.me/NikosKworkAssistantBot" target="_blank" style="width:56px;height:56px;border-radius:50%;background:#0088cc;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:var(--transition)"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/79780525045" target="_blank" style="width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:var(--transition)"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="footer-links" style="margin-bottom:16px">
+      <a href="#music">Музыка</a>
+      <a href="#career">Карьера</a>
+      <a href="#media">Медиа</a>
+      <a href="#booking">Заказать</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <p>Арсен Бекиров © 2026 · Крым</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <button class="close-lb" id="closeLbBtn">&times;</button>
+    <img id="lightboxImg" src="" alt="Фото">
+  </div>
+
+  <!-- CUSTOM PLAYER (для треков которые не каверы) -->
+  <div id="custom-player">
+    <div class="info">
+      <div class="track-name">Название</div>
+      <div class="track-artist">Арсен Бекиров</div>
+    </div>
+    <div class="controls">
+      <button onclick="togglePlay()" title="Play/Pause" id="playBtn"><i class="fas fa-play"></i></button>
+      <div class="progress-wrap">
+        <span class="time" id="currentTime">0:00</span>
+        <div class="progress-bar" id="progressBar" onclick="seekTrack(event)">
+          <div class="fill" id="progressFill"></div>
+          <div class="thumb"></div>
+        </div>
+        <span class="time" id="totalTime">0:00</span>
+      </div>
+    </div>
+    <button class="close" onclick="closePlayer()"><i class="fas fa-chevron-down"></i></button>
+  </div>
+
+  <script>
+    // ===== PARTICLES =====
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+
+    class Particle{
+      constructor(){this.reset()}
+      reset(){
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*2+0.5;
+        this.speedX=(Math.random()-0.5)*0.3;
+        this.speedY=(Math.random()-0.5)*0.3;
+        this.opacity=Math.random()*0.5+0.1;
+      }
+      update(){
+        this.x+=this.speedX;this.y+=this.speedY;
+        if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height)this.reset()
+      }
+      draw(){
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fillStyle=`rgba(201,169,89,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+    for(let i=0;i<80;i++)particles.push(new Particle());
+    function animateParticles(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{p.update();p.draw()});
+      requestAnimationFrame(animateParticles)
+    }
+    animateParticles();
+
+    // ===== NAV TOGGLE =====
+    document.getElementById('navToggle').addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(a=>{
+      a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // ===== SCROLL NAV SHADOW =====
+    window.addEventListener('scroll',()=>{
+      document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+    });
+
+    // ===== REVEAL ON SCROLL =====
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // ===== COUNTER ANIMATION =====
+    const counterObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          let current = 0;
+          const step = Math.ceil(target/40);
+          const interval = setInterval(()=>{
+            current = Math.min(current+step,target);
+            el.textContent = current;
+            if(current>=target)clearInterval(interval);
+          },40);
+          counterObserver.unobserve(el);
+        }
+      });
+    },{threshold:0.5});
+    document.querySelectorAll('[data-count]').forEach(el=>counterObserver.observe(el));
+
+    // ===== CUSTOM PLAYER (только для треков без src) =====
+    const player = document.getElementById('custom-player');
+    const playBtn = document.getElementById('playBtn');
+    const progressFill = document.getElementById('progressFill');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const totalTimeEl = document.getElementById('totalTime');
+    const trackNameEl = player.querySelector('.track-name');
+    let audio = null;
+
+    function formatTime(s){
+      if(!s||isNaN(s))return '0:00';
+      const m=Math.floor(s/60);
+      const sec=Math.floor(s%60);
+      return m+':'+(sec<10?'0':'')+sec;
+    }
+
+    function playTrack(album,name,src,index){
+      if(audio){audio.pause();audio=null}
+
+      if(!src){
+        showToast('🎵 «'+name+'» — скоро на всех площадках! Следи в Instagram @mr.arsenbekirov');
+        return;
+      }
+
+      trackNameEl.textContent = name + ' · ' + album;
+      player.classList.add('active');
+      audio = new Audio(src);
+
+      audio.addEventListener('timeupdate',()=>{
+        if(audio.duration){
+          progressFill.style.width = (audio.currentTime/audio.duration*100)+'%';
+          currentTimeEl.textContent = formatTime(audio.currentTime);
+        }
+      });
+      audio.addEventListener('loadedmetadata',()=>{
+        totalTimeEl.textContent = formatTime(audio.duration);
+      });
+      audio.addEventListener('ended',()=>{
+        playBtn.innerHTML='<i class="fas fa-play"></i>';
+        progressFill.style.width='0%';
+      });
+      audio.play().then(()=>{playBtn.innerHTML='<i class="fas fa-pause"></i>'}).catch(()=>{showToast('⚠ Не удалось воспроизвести трек')});
+    }
+
+    function togglePlay(){
+      if(!audio)return;
+      if(audio.paused){
+        audio.play();
+        playBtn.innerHTML='<i class="fas fa-pause"></i>';
+      } else {
+        audio.pause();
+        playBtn.innerHTML='<i class="fas fa-play"></i>';
+      }
+    }
+
+    function seekTrack(e){
+      if(!audio||!audio.duration)return;
+      const rect = progressBar.getBoundingClientRect();
+      const pct = Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+      audio.currentTime = pct*audio.duration;
+    }
+
+    function closePlayer(){
+      if(audio){audio.pause();audio=null}
+      player.classList.remove('active');
+      playBtn.innerHTML='<i class="fas fa-play"></i>';
+      progressFill.style.width='0%';
+      currentTimeEl.textContent='0:00';
+      totalTimeEl.textContent='0:00';
+    }
+
+    // ===== CAREER CAROUSEL =====
+    let careerIndex = 0;
+    const careerTrack = document.getElementById('careerTrack');
+    const careerDots = document.getElementById('carouselDots');
+    if(careerTrack){
+      const slides = careerTrack.querySelectorAll('.career-slide');
+      slides.forEach((_,i)=>{
+        const dot = document.createElement('button');
+        dot.className = 'dot' + (i===0?' active':'');
+        dot.onclick = ()=>{careerIndex=i;updateCareer()};
+        careerDots.appendChild(dot);
+      });
+      // Drag support
+      let isDown=false,startX=0,scrollLeft=0;
+      careerTrack.addEventListener('mousedown',e=>{isDown=true;careerTrack.classList.add('dragging');startX=e.pageX-careerTrack.offsetLeft;scrollLeft=careerTrack.scrollLeft});
+      careerTrack.addEventListener('mouseleave',()=>{isDown=false;careerTrack.classList.remove('dragging')});
+      careerTrack.addEventListener('mouseup',()=>{isDown=false;careerTrack.classList.remove('dragging')});
+      careerTrack.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-careerTrack.offsetLeft;const walk=(x-startX)*1.5;careerTrack.scrollLeft=scrollLeft-walk});
+      // Touch
+      careerTrack.addEventListener('touchstart',e=>{startX=e.touches[0].pageX;scrollLeft=careerTrack.scrollLeft});
+      careerTrack.addEventListener('touchmove',e=>{const x=e.touches[0].pageX;const walk=(x-startX)*1.5;careerTrack.scrollLeft=scrollLeft-walk});
+      function updateCareer(){
+        const slide = slides[careerIndex];
+        if(slide) slide.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});
+        careerDots.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===careerIndex));
+      }
+      window.slideCareer = (dir)=>{
+        careerIndex = Math.max(0,Math.min(slides.length-1,careerIndex+dir));
+        updateCareer();
+      };
+    }
+
+    // ===== TOAST =====
+    function showToast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(()=>t.classList.remove('show'),3000);
+    }
+
+    // ===== COVERS AUDIO STYLING =====
+    document.querySelectorAll('audio').forEach(a=>{
+      a.addEventListener('play',function(){
+        document.querySelectorAll('audio').forEach(el=>{if(el!==this)el.pause()});
+      });
+    });
+
+    // ===== PROGRESS BAR =====
+    const scrollProgress = document.getElementById('progress-bar');
+    let ticking = false;
+    window.addEventListener('scroll',()=>{
+      if(!ticking){
+        requestAnimationFrame(()=>{
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          scrollProgress.style.width = (scrollTop/docHeight*100)+'%';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },{passive:true});
+
+    // ===== TYPING EFFECT =====
+    const typingEl = document.getElementById('typing-text');
+    const phrases = ['Вокал. Каверы. Крым', 'Заслуженный артист Крыма и Татарстана', 'Qirim EP — 2025'];
+    let phraseIdx = 0, charIdx = 0, isDeleting = false;
+    function typeEffect(){
+      const current = phrases[phraseIdx];
+      if(!isDeleting){
+        typingEl.textContent = current.substring(0, charIdx+1);
+        charIdx++;
+        if(charIdx === current.length){isDeleting=true;setTimeout(typeEffect,2000);return}
+      } else {
+        typingEl.textContent = current.substring(0, charIdx-1);
+        charIdx--;
+        if(charIdx === 0){isDeleting=false;phraseIdx=(phraseIdx+1)%phrases.length;setTimeout(typeEffect,500);return}
+      }
+      setTimeout(typeEffect, isDeleting ? 30 : 60);
+    }
+    setTimeout(typeEffect, 1500);
+
+    // ===== MAGNETIC BUTTONS =====
+    document.querySelectorAll('.magnetic').forEach(btn=>{
+      btn.style.transition = 'transform 0.05s ease-out';
+      btn.addEventListener('mousemove',e=>{
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width/2;
+        const y = e.clientY - r.top - r.height/2;
+        btn.style.transform = `translate(${x*0.3}px, ${y*0.3}px)`;
+      });
+      btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0,0)'});
+    });
+
+    // ===== CARD GLOW TRACKING =====
+    document.querySelectorAll('.card-glow').forEach(c=>{
+      c.addEventListener('mousemove',e=>{
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mouse-x', (e.clientX-r.left)+'px');
+        c.style.setProperty('--mouse-y', (e.clientY-r.top)+'px');
+      });
+    });
+
+    // ===== DISC SPIN ON AUDIO PLAY =====
+    document.querySelectorAll('audio').forEach(a=>{
+      a.addEventListener('play',()=>document.getElementById('albumDisc')?.classList.add('playing'));
+      a.addEventListener('pause',()=>document.getElementById('albumDisc')?.classList.remove('playing'));
+      a.addEventListener('ended',()=>document.getElementById('albumDisc')?.classList.remove('playing'));
+    });
+
+    // ===== AUTO-PLAY MUSIC BUTTON =====
+    let musicAudio = null;
+    let isMusicPlaying = false;
+    const musicToggle = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('musicToggleIcon');
+    const musicInfo = document.getElementById('musicTrackInfo');
+    const musicName = document.getElementById('musicTrackName');
+    const playlist = [
+      {name:'Lose Control', src:'Covers/Lose%20control.mp3'},
+      {name:'Wind of Change', src:'Covers/wind%20of%20change.mp3'},
+      {name:'Blinding Lights', src:'Covers/Weekend%202.mp3'}
+    ];
+    let currentTrack = 0;
+
+    function toggleMusic(){
+      if(!musicAudio){
+        musicAudio = new Audio(playlist[currentTrack].src);
+        musicAudio.addEventListener('ended',()=>{
+          currentTrack = (currentTrack+1)%playlist.length;
+          musicAudio.src = playlist[currentTrack].src;
+          musicAudio.play();
+          musicName.textContent = playlist[currentTrack].name;
+        });
+        musicAudio.addEventListener('timeupdate',()=>{
+          // Visual feedback could go here (e.g., rotating animation)
+        });
+      }
+
+      if(musicAudio.paused){
+        musicAudio.play().then(()=>{
+          isMusicPlaying = true;
+          musicIcon.className = 'fas fa-pause';
+          musicToggle.classList.add('playing');
+          musicInfo.classList.add('show');
+          musicName.textContent = playlist[currentTrack].name;
+        }).catch(()=>{
+          showToast('🎵 Нажми ещё раз чтобы включить музыку');
+        });
+      } else {
+        musicAudio.pause();
+        isMusicPlaying = false;
+        musicIcon.className = 'fas fa-play';
+        musicToggle.classList.remove('playing');
+      }
+    }
+
+    // Show hint on first visit
+    setTimeout(()=>{
+      showToast('🎵 Нажми на нотку внизу справа чтобы включить музыку');
+    }, 3000);
+
+    // ===== MEDIA TABS =====
+    function switchMediaTab(tabId, btn){
+      document.querySelectorAll('.media-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.media-content').forEach(c=>c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('media-'+tabId).classList.add('active');
+    }
+
+
+
+    // ===== LIGHTBOX =====
+    function openLightbox(src){
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e){
+      // Close if clicking backdrop or close button, not the image itself
+      if(!e || e.target === e.currentTarget || e.target.id === 'closeLbBtn'){
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    console.log('🎤 Arsen Bekirov — Official Site v4.0');
+  </script>
+</body>
+</html>
