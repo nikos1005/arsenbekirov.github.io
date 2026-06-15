@@ -1310,6 +1310,24 @@
       .form-row{grid-template-columns:1fr;gap:0}
       .contact-form{padding:28px 20px;border-radius:16px}
       .contact-section{padding:60px 16px}
+    }
+    /* Career section with background */
+    #career.with-bg{
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    #career.with-bg::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(10,10,10,0.6);
+      backdrop-filter:blur(3px);
+      z-index:0;
+    }
+    #career.with-bg > *{
+      position:relative;
+      z-index:1;
     }</style>
 </head>
 <body>
@@ -1632,7 +1650,7 @@
   </section>
 
   <!-- CAREER CAROUSEL -->
-  <section class="section" id="career">
+  <section class="section with-bg" id="career" style="background-image:url('media/bg/concert-bg.png');background-size:cover;background-position:center;background-attachment:fixed">
     <div class="section-header reveal">
       <div class="label">Карьера</div>
       <h2>Творческий путь</h2>
