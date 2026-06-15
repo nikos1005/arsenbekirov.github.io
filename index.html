@@ -853,7 +853,11 @@
     }
 
     /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp{
+    @keyframes mediaFadeIn{
+  0%{opacity:0;transform:translateY(10px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUp{
       from{opacity:0;transform:translateY(24px)}
       to{opacity:1;transform:translateY(0)}
     }
@@ -1088,8 +1092,8 @@
     }
     .media-tab:hover{border-color:var(--gold-dark);color:var(--gold)}
     .media-tab.active{background:rgba(201,169,89,0.1);border-color:var(--gold);color:var(--gold)}
-    .media-content{display:none}
-    .media-content.active{display:block}
+    .media-content{display:none;opacity:0;transform:translateY(10px);}
+    .media-content.active{display:block;animation:mediaFadeIn 0.4s ease forwards}
     .media-grid{
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
@@ -1137,6 +1141,20 @@
       box-shadow:0 20px 60px rgba(0,0,0,0.5);
       object-fit:contain;
     }
+    #lightbox .lightbox-img-wrapper{
+      position:relative;
+      width:auto;max-width:90vw;max-height:85vh;
+      border-radius:12px;overflow:hidden;
+    }
+    #lightboxImg{
+      display:block;
+      max-width:90vw;max-height:85vh;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+      transition:opacity 0.3s ease;
+    }
+    #lightboxImg.loading{opacity:0}
     #lightbox .close-lb{
       position:absolute;
       top:20px;right:30px;
@@ -1864,7 +1882,7 @@
     </div>
     <div class="media-content" id="media-photos">
       <div class="photo-grid">
-        <div class="photo-item tall reveal" style="background-image:url('media/bg/IMG_4818.JPG')" onclick="openLightbox('media/bg/IMG_4818.JPG')"></div>
+        <div class="photo-item tall reveal" style="background-image:url('media/bg/IMG_4818.JPG')" onclick="openLightbox('media/bg/IMG_4818.JPG', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)"></div>
         <div class="photo-item reveal" style="background-image:url('media/bg/IMG_4705.JPG')" onclick="openLightbox('media/bg/IMG_4705.JPG')"></div>
         <div class="photo-item wide reveal" style="background-image:url('media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg')" onclick="openLightbox('media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg')"></div>
         <div class="photo-item reveal" style="background-image:url('media/bg/IMG_4710.JPG')" onclick="openLightbox('media/bg/IMG_4710.JPG')"></div>
@@ -2429,10 +2447,46 @@
     }
 
     // ===== LIGHTBOX =====
-    function openLightbox(src){
-      document.getElementById('lightboxImg').src = src;
+    var photoList = [];
+    var currentPhotoIndex = 0;
+    
+    function openLightbox(src, index){
+      // Collect all photo sources from the gallery
+      currentPhotoIndex = index || 0;
+      var items = document.querySelectorAll('.photo-item');
+      photoList = [];
+      for(var i=0;i<items.length;i++){
+        var bg = items[i].style.backgroundImage;
+        if(bg){
+          var match = bg.match(/url\(["']?([^"')]+)["']?\)/);
+          if(match) photoList.push(match[1]);
+        }
+      }
+      
+      var img = document.getElementById('lightboxImg');
+      img.classList.add('loading');
+      img.src = src;
       document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
+    }
+    
+    function prevPhoto(){
+      if(photoList.length===0)return;
+      var idx = (currentPhotoIndex - 1 + photoList.length) % photoList.length;
+      changePhoto(idx);
+    }
+    
+    function nextPhoto(){
+      if(photoList.length===0)return;
+      var idx = (currentPhotoIndex + 1) % photoList.length;
+      changePhoto(idx);
+    }
+    
+    function changePhoto(idx){
+      var img = document.getElementById('lightboxImg');
+      img.classList.add('loading');
+      currentPhotoIndex = idx;
+      img.src = photoList[idx];
     }
     function closeLightbox(e){
       // Close if clicking backdrop or close button, not the image itself
