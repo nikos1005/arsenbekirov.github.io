@@ -541,13 +541,54 @@
     /* ===== ABOUT ===== */
     .about-section{padding-top:20px}
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:960px;margin:0 auto}
-    .about-photo-frame{position:relative;width:100%;max-width:340px;margin:0 auto;border-radius:20px}
-    .about-photo-inner{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08)}
-    .about-photo-inner img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
-    .about-photo-frame:hover .about-photo-inner img{transform:scale(1.03)}
-    .photo-glow{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(201,169,89,0.12));pointer-events:none;border-radius:20px}
-    .about-photo-frame::after{content:'';position:absolute;inset:-3px;border-radius:23px;background:linear-gradient(135deg,rgba(201,169,89,0.3),transparent 50%,rgba(201,169,89,0.1));z-index:-1;opacity:0;transition:opacity 0.5s ease}
-    .about-photo-frame:hover::after{opacity:1}
+    .about-geo-frame{position:relative;width:100%;max-width:340px;margin:0 auto;min-height:400px;display:flex;align-items:center;justify-content:center;border-radius:24px;overflow:hidden;aspect-ratio:3/4}
+    .geo-shapes{position:absolute;inset:0;overflow:hidden}
+    
+    /* Circles */
+    .geo-circle{position:absolute;border-radius:50%;opacity:0.15}
+    .geo-circle-1{width:280px;height:280px;top:-40px;right:-60px;background:radial-gradient(circle,rgba(201,169,89,0.4),transparent 70%);animation:geoFloat1 6s ease-in-out infinite}
+    .geo-circle-2{width:200px;height:200px;bottom:-30px;left:-50px;background:radial-gradient(circle,rgba(201,169,89,0.25),transparent 70%);animation:geoFloat2 8s ease-in-out infinite}
+    .geo-circle-3{width:120px;height:120px;top:15%;right:-20px;background:radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%);animation:geoPulse 4s ease-in-out infinite}
+    
+    /* Diamonds */
+    .geo-diamond{position:absolute;width:40px;height:40px;border:1px solid rgba(201,169,89,0.2);transform:rotate(45deg);border-radius:4px}
+    .geo-diamond-1{top:18%;right:18%;animation:geoSpin 12s linear infinite}
+    .geo-diamond-1::after{content:'';position:absolute;inset:4px;border:1px solid rgba(201,169,89,0.1);border-radius:2px}
+    .geo-diamond-2{bottom:22%;left:20%;width:30px;height:30px;border-color:rgba(255,255,255,0.1);animation:geoSpin 15s linear infinite reverse}
+    
+    /* Rings */
+    .geo-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,169,89,0.12)}
+    .geo-ring-1{width:160px;height:160px;top:10%;left:5%;animation:geoFloat1 10s ease-in-out infinite}
+    .geo-ring-2{width:100px;height:100px;bottom:15%;right:10%;border-color:rgba(255,255,255,0.06);animation:geoFloat2 7s ease-in-out infinite}
+    
+    /* Dots */
+    .geo-dot{position:absolute;border-radius:50%}
+    .geo-dot-1{width:6px;height:6px;background:var(--gold);top:25%;left:12%;animation:geoPulse 3s ease-in-out infinite 0.5s}
+    .geo-dot-2{width:4px;height:4px;background:rgba(255,255,255,0.4);top:60%;right:8%;animation:geoPulse 3s ease-in-out infinite 1s}
+    .geo-dot-3{width:5px;height:5px;background:var(--gold);bottom:8%;left:40%;animation:geoPulse 3s ease-in-out infinite 1.5s}
+    
+    /* Name on top of geometry */
+    .geo-name{position:relative;z-index:2;text-align:center}
+    .geo-name-text{font-size:clamp(28px,4vw,38px);font-weight:700;color:#fff;line-height:1.2;text-shadow:0 4px 20px rgba(0,0,0,0.3);letter-spacing:2px;display:inline-block;background:linear-gradient(135deg,#fff 40%,rgba(201,169,89,0.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    
+    /* Animations */
+    @keyframes geoFloat1{
+      0%,100%{transform:translate(0,0)}
+      50%{transform:translate(10px,-15px)}
+    }
+    @keyframes geoFloat2{
+      0%,100%{transform:translate(0,0)}
+      50%{transform:translate(-8px,12px)}
+    }
+    @keyframes geoPulse{
+      0%,100%{opacity:0.15;transform:scale(1)}
+      50%{opacity:0.35;transform:scale(1.1)}
+    }
+    @keyframes geoSpin{
+      from{transform:rotate(45deg)}
+      to{transform:rotate(405deg)}
+    }
+    
     .about-mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:340px;margin:16px auto 0}
     .mini-stat{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;transition:var(--transition)}
     .mini-stat:hover{background:rgba(201,169,89,0.08);border-color:rgba(201,169,89,0.2)}
@@ -1056,7 +1097,7 @@
       .btn{font-size:13px;padding:10px 20px}
       .section h2{font-size:clamp(22px,6vw,28px)}
       .about-grid{grid-template-columns:1fr;gap:24px}
-      .about-photo-frame{max-width:200px}
+      .about-geo-frame{max-width:200px;min-height:240px}
       .about-mini-stats{max-width:200px;gap:4px}
       .about-bio-text{font-size:14px;line-height:1.7}
       .about-highlights-3d{grid-template-columns:1fr;gap:10px}
@@ -1084,7 +1125,7 @@
   
     @media(max-width:768px){
       .about-grid{grid-template-columns:1fr;gap:32px}
-      .about-photo-frame{max-width:260px}
+      .about-geo-frame{max-width:260px;min-height:300px}
       .about-mini-stats{max-width:260px}
       .about-bio-text{font-size:15px}
       .about-highlights-3d{grid-template-columns:1fr;gap:12px}
@@ -1328,7 +1369,8 @@
     #career.with-bg > *{
       position:relative;
       z-index:1;
-    }</style>
+    }
+    @media (prefers-reduced-motion:reduce){.geo-shapes *,.tilt-card-inner{animation:none!important;transition:none!important}}</style>
 </head>
 <body>
 
@@ -1533,10 +1575,21 @@
       </div>
       <div class="about-grid reveal">
         <div class="about-photo-col">
-          <div class="about-photo-frame">
-            <div class="about-photo-inner">
-              <img src="media/bg/IMG_4702.JPG" alt="Арсен Бекиров" loading="lazy">
-              <div class="photo-glow"></div>
+          <div class="about-geo-frame">
+            <div class="geo-shapes">
+              <div class="geo-circle geo-circle-1"></div>
+              <div class="geo-circle geo-circle-2"></div>
+              <div class="geo-circle geo-circle-3"></div>
+              <div class="geo-diamond geo-diamond-1"></div>
+              <div class="geo-diamond geo-diamond-2"></div>
+              <div class="geo-ring geo-ring-1"></div>
+              <div class="geo-ring geo-ring-2"></div>
+              <div class="geo-dot geo-dot-1"></div>
+              <div class="geo-dot geo-dot-2"></div>
+              <div class="geo-dot geo-dot-3"></div>
+            </div>
+            <div class="geo-name">
+              <span class="geo-name-text">Арсен<br>Бекиров</span>
             </div>
           </div>
           <div class="about-mini-stats">
