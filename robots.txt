@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arsenbekirov.com/sitemap.xml
