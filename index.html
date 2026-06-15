@@ -2028,6 +2028,26 @@
       <a href="tel:+79780525045" class="social-link" target="_blank" title="Телефон"><i class="fas fa-phone"></i></a>
       <a href="mailto:mr.arsenbekirov@mail.ru" class="social-link" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
+
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Телефон (опционально)">
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="formSubmitBtn">
+        <span id="btnText">Отправить</span>
+        <span id="btnSpinner" style="display:none">⏳ Отправка...</span>
+      </button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
   </section>
 
   <!-- FOOTER -->
