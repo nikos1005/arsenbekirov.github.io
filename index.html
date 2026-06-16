@@ -1433,7 +1433,10 @@
     @keyframes mediaFadeIn{
       from{opacity:0;transform:translateY(15px)}
       to{opacity:1;transform:translateY(0)}
-    }</style>
+    }
+    /* Counter animation */
+    .number.done{animation:countPop 0.6s ease forwards}
+    @keyframes countPop{from{transform:scale(1)}50%{transform:scale(1.1)}to{transform:scale(1)}}</style>
   <link rel="icon" type="image/png" sizes="32x32" href="media/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
@@ -2336,24 +2339,6 @@
     },{threshold:0.1});
     document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-    // ===== COUNTER ANIMATION =====
-    const counterObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const el = entry.target;
-          const target = parseInt(el.dataset.count);
-          let current = 0;
-          const step = Math.ceil(target/40);
-          const interval = setInterval(()=>{
-            current = Math.min(current+step,target);
-            el.textContent = current;
-            if(current>=target)clearInterval(interval);
-          },40);
-          counterObserver.unobserve(el);
-        }
-      });
-    },{threshold:0.5});
-    document.querySelectorAll('[data-count]').forEach(el=>counterObserver.observe(el));
 
     // ===== CUSTOM PLAYER (только для треков без src) =====
     const player = document.getElementById('custom-player');
@@ -2712,6 +2697,46 @@
       }
     });
   });
-</script>
+
+  // Counter Animation for Stats
+  function animateCounter() {
+    document.querySelectorAll('.number[data-count]').forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-count'));
+      var start = performance.now();
+      var duration = Math.max(800, target * 120);
+            function step(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        // Ease-out quad
+        var eased = 1 - (1 - progress) * (1 - progress);
+        var current = Math.round(eased * target);
+        el.textContent = current;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target;
+          el.classList.add('done');
+        }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  // Trigger once on scroll via IntersectionObserver
+  (function() {
+    var statsSection = document.querySelector('.stats-grid');
+    if (!statsSection) return;
+    // Wait for reveal animation to finish first
+    setTimeout(function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.3});
+      observer.observe(statsSection);
+    }, 500);
+  })();</script>
 </body>
 </html>
