@@ -1356,7 +1356,11 @@
       position:relative;
       z-index:1;
     }
-    @media (prefers-reduced-motion:reduce){.geo-shapes *,.tilt-card-inner{animation:none!important;transition:none!important}}</style>
+    @media (prefers-reduced-motion:reduce){.geo-shapes *,.tilt-card-inner{animation:none!important;transition:none!important}}
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
+    }</style>
 </head>
 <body>
 
