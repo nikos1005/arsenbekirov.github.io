@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 шагов к финансовой свободе — Fin Flow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #f8f5f0;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+
+  .book-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 30px 80px;
+  }
+
+  /* Cover section */
+  .cover {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(145deg, #0d1326 0%, #1a1f3a 50%, #0d1326 100%);
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(232,184,48,0.08) 0%, transparent 60%);
+  }
+  .cover-icon { font-size: 56px; margin-bottom: 16px; }
+  .cover h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    color: #e8b830;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+  .cover .price-tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 36px;
+    background: linear-gradient(135deg, #e8b830, #d4a520);
+    color: #0d1326;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 12px;
+    letter-spacing: 1px;
+  }
+  .cover .price-tag small {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .toc {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .toc h2 {
+    font-size: 20px;
+    color: #e8b830;
+    margin-bottom: 16px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .toc ol {
+    padding-left: 20px;
+  }
+  .toc li {
+    padding: 6px 0;
+    font-size: 15px;
+    color: #334;
+    border-bottom: 1px solid #f0eee8;
+  }
+  .toc li:last-child { border-bottom: none; }
+
+  .chapter {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s;
+  }
+  .chapter:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .chapter h3 {
+    font-size: 20px;
+    color: #0d1326;
+    margin-bottom: 8px;
+  }
+  .chapter .meta {
+    font-size: 12px;
+    color: #e8b830;
+    font-family: 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .chapter p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  .chapter .highlight {
+    background: #fef9e7;
+    border-left: 3px solid #e8b830;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #554;
+    margin: 12px 0;
+  }
+  .chapter .action-step {
+    background: linear-gradient(135deg, #0d1326, #1a1f3a);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  .chapter .action-step strong {
+    color: #e8b830;
+  }
+
+  .cta-final {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(145deg, #0d1326, #1a1f3a);
+    border-radius: 16px;
+    margin-top: 32px;
+  }
+  .cta-final h2 {
+    color: #e8b830;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .cta-final p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+  }
+  .cta-final .buy-btn {
+    display: inline-block;
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #e8b830, #d4a520);
+    color: #0d1326;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    transition: transform 0.2s;
+  }
+  .cta-final .buy-btn:hover {
+    transform: scale(1.03);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 13px;
+  }
+
+  @media (max-width: 520px) {
+    .book-container { padding: 20px 16px 40px; }
+    .cover { padding: 40px 16px 30px; }
+    .chapter { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="book-container">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-icon">📗</div>
+    <h1>10 шагов к финансовой свободе</h1>
+    <div class="subtitle">Практическое руководство для начинающих</div>
+    <div class="subtitle" style="font-size:14px;">48 страниц • проверенные стратегии • готовые шаблоны</div>
+    <div class="price-tag">$19 <small>— полная версия</small></div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>📋 Содержание</h2>
+    <ol>
+      <li><strong>Шаг 1:</strong> Что такое деньги и как они работают</li>
+      <li><strong>Шаг 2:</strong> Составляем личный бюджет</li>
+      <li><strong>Шаг 3:</strong> Правило 50/30/20 — твоя формула богатства</li>
+      <li><strong>Шаг 4:</strong> Финансовая подушка безопасности</li>
+      <li><strong>Шаг 5:</strong> Долги и кредиты — как не попасть в ловушку</li>
+      <li><strong>Шаг 6:</strong> Основы инвестирования</li>
+      <li><strong>Шаг 7:</strong> Создаём источники пассивного дохода</li>
+      <li><strong>Шаг 8:</strong> Страхование — твоя защита</li>
+      <li><strong>Шаг 9:</strong> Налоги и налоговая оптимизация</li>
+      <li><strong>Шаг 10:</strong> План действий на 12 месяцев</li>
+    </ol>
+  </div>
+
+  <!-- CHAPTER 1 -->
+  <div class="chapter">
+    <div class="meta">Шаг 1</div>
+    <h3>Что такое деньги и как они работают</h3>
+    <p>Деньги — это не цель. Это инструмент. Как молоток или компьютер. Разница лишь в том, что деньги — самый универсальный инструмент в мире. На них можно «купить» время, свободу, безопасность.</p>
+    <p>Большинство людей думают о деньгах неправильно. Они видят в них источник проблем или «зло». Но правда в том, что деньги — это просто энергия, которая течёт туда, где создаётся ценность.</p>
+    <div class="highlight">
+      💡 Главное отличие богатого человека от бедного — отношение к деньгам. Богатые видят возможности. Бедные — препятствия.
+    </div>
+    <p><strong>Первый шаг к финансовой свободе — изменить своё отношение к деньгам.</strong> Перестать бояться и начать изучать.</p>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Напиши 3 вещи, которые деньги могут тебе дать (не вещи, а состояния). Например: «спокойствие», «свобода путешествовать», «время с семьёй».
+    </div>
+  </div>
+
+  <!-- CHAPTER 2 -->
+  <div class="chapter">
+    <div class="meta">Шаг 2</div>
+    <h3>Составляем личный бюджет</h3>
+    <p>Бюджет — это не ограничение. Это план. Ты не можешь управлять тем, что не измеряешь. Если ты не знаешь, куда уходят твои деньги — они уходят сами.</p>
+    <p>Исследования показывают: люди, которые ведут бюджет, тратят на 25% меньше и откладывают на 40% больше, чем те, кто этого не делает.</p>
+    <div class="highlight">
+      📊 Начни с малого — записывай каждую трату в течение 7 дней. Результат тебя удивит.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Скачай шаблон бюджета (идет в комплекте с гайдом). Заполни свои доходы и расходы за последний месяц.
+    </div>
+  </div>
+
+  <!-- CHAPTER 3 -->
+  <div class="chapter">
+    <div class="meta">Шаг 3</div>
+    <h3>Правило 50/30/20</h3>
+    <p>Самая простая и эффективная система распределения денег:</p>
+    <p><strong>50% — Нужды:</strong> Жильё, еда, транспорт, коммунальные платежи. То, без чего нельзя прожить.</p>
+    <p><strong>30% — Желания:</strong> Рестораны, развлечения, хобби, путешествия. То, что делает жизнь приятной.</p>
+    <p><strong>20% — Сбережения:</strong> Инвестиции, подушка безопасности, погашение долгов. То, что строит твоё будущее.</p>
+    <div class="highlight">
+      ⚡ Начни с 20% сбережений сейчас. Даже если кажется, что нечего откладывать — начни с $10. Главное — привычка.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Рассчитай свои проценты. Если на «желания» уходит больше 30% — найди, что сократить.
+    </div>
+  </div>
+
+  <!-- CHAPTER 4 -->
+  <div class="chapter">
+    <div class="meta">Шаг 4</div>
+    <h3>Финансовая подушка безопасности</h3>
+    <p>Подушка безопасности — это твоя защита от жизни. Потеря работы, болезнь, авария — непредвиденные ситуации случаются со всеми.</p>
+    <p><strong>Размер подушки:</strong> 3-6 месяцев твоих расходов. Если тратишь $1000 в месяц — цель $3000-6000.</p>
+    <p>Хранить подушку нужно отдельно от ежедневных денег. Лучший вариант — накопительный счёт, откуда неудобно снимать быстро.</p>
+    <div class="highlight">
+      🛡️ Подушка безопасности — это не инвестиция. Её цель не заработать, а защитить. Держи её в надёжном, ликвидном месте.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Открой накопительный счёт. Начни откладывать 10% от каждого дохода до достижения цели.
+    </div>
+  </div>
+
+  <!-- CHAPTER 5 -->
+  <div class="chapter">
+    <div class="meta">Шаг 5</div>
+    <h3>Долги и кредиты — как не попасть в ловушку</h3>
+    <p>Кредиты бывают хорошие и плохие. Хороший кредит — тот, который приносит деньги (ипотека на квартиру, кредит на бизнес). Плохой — тот, который забирает (кредит на телефон, отпуск в долг).</p>
+    <p><strong>Проценты — это цена времени.</strong> Если ты берёшь $1000 под 20% годовых — ты платишь $200 за то, чтобы получить деньги сейчас.</p>
+    <div class="highlight">
+      🚫 Правило: не бери кредит на то, что не растёт в цене. Если вещь дешевеет — копи. Если дорожает — можно кредит.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Составь список всех долгов. Отсортируй по процентной ставке. Начни гасить с самого дорогого.
+    </div>
+  </div>
+
+  <!-- CHAPTER 6 -->
+  <div class="chapter">
+    <div class="meta">Шаг 6</div>
+    <h3>Основы инвестирования</h3>
+    <p>Инвестиции — это когда твои деньги работают вместо тебя. Ты не продаёшь своё время за деньги — твой капитал создаёт деньги сам.</p>
+    <p><strong>Главный секрет — сложный процент.</strong> Если ты инвестируешь $100 в месяц под 8% годовых:</p>
+    <p>Через 10 лет: $18,000<br>Через 20 лет: $58,000<br>Через 30 лет: $147,000</p>
+    <div class="highlight">
+      🌱 Не нужно быть экспертом. Начни с ETF и индексных фондов. Диверсификация — твой лучший друг.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Открой брокерский счёт (Interactive Brokers, eToro или локальный брокер). Купи первый ETF на $100.
+    </div>
+  </div>
+
+  <!-- CHAPTER 7 -->
+  <div class="chapter">
+    <div class="meta">Шаг 7</div>
+    <h3>Создаём источники пассивного дохода</h3>
+    <p>Пассивный доход — это деньги, которые приходят без твоего активного участия. Аренда, дивиденды, авторские отчисления, цифровые продукты.</p>
+    <p><strong>Путь к пассивному доходу:</strong> Активный доход → Сбережения → Инвестиции → Пассивный доход.</p>
+    <p>Цель не в том, чтобы ничего не делать. А в том, чтобы делать то, что хочешь ты, а не то, что требует работа.</p>
+    <div class="highlight">
+      💰 Каждый $1, который работает на тебя — это маленький солдат в армии твоей свободы.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Выбери один источник пассивного дохода (дивидендные акции, цифровой продукт, аренда). Начни с малого.
+    </div>
+  </div>
+
+  <!-- CHAPTER 8 -->
+  <div class="chapter">
+    <div class="meta">Шаг 8</div>
+    <h3>Страхование — твоя защита</h3>
+    <p>Страхование — это финансовая подушка для крупных рисков. Медицина, имущество, ответственность.</p>
+    <p>Пока ты молод — страховка стоит копейки. Чем старше — тем дороже. А когда она становится нужна — её уже не купить.</p>
+    <div class="highlight">
+      ☂️ Не страхуй мелкие риски (франшиза покроет сама). Страхуй катастрофы — то, что может уничтожить твой капитал.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Проверь, что у тебя есть медицинская страховка. Добавь страховку имущества, если владеешь ценными вещами.
+    </div>
+  </div>
+
+  <!-- CHAPTER 9 -->
+  <div class="chapter">
+    <div class="meta">Шаг 9</div>
+    <h3>Налоги и налоговая оптимизация</h3>
+    <p>Налоги — это не страшно. Это твой вклад в общество. Но платить можно и нужно оптимизировать.</p>
+    <p><strong>Налоговые вычеты:</strong> Во многих странах можно вернуть часть налогов за обучение, лечение, покупку жилья. В России — до 15,600 ₽ в год.</p>
+    <div class="highlight">
+      🧮 Потрать 2 часа в год на налоговую декларацию. Это может принести тебе $200-500 обратно.
+    </div>
+    <div class="action-step">
+      <strong>📝 Действие:</strong> Узнай, какие налоговые льготы доступны в твоей стране. Собери чеки на лечение и обучение за год.
+    </div>
+  </div>
+
+  <!-- CHAPTER 10 -->
+  <div class="chapter">
+    <div class="meta">Шаг 10</div>
+    <h3>План действий на 12 месяцев</h3>
+    <p>Теперь у тебя есть все инструменты. Осталось главное — начать.</p>
+    <p><strong>Месяц 1-3:</strong> Бюджет + подушка безопасности (первая $1000)</p>
+    <p><strong>Месяц 4-6:</strong> Погашение дорогих долгов + инвестиции первые $500</p>
+    <p><strong>Месяц 7-9:</strong> Пассивный доход + страховка</p>
+    <p><strong>Месяц 10-12:</strong> Оптимизация налогов + план на следующий год</p>
+    <div class="highlight">
+      🚀 Не пытайся сделать всё сразу. Один шаг за раз. Финансовая свобода — это марафон, а не спринт.
+    </div>
+    <div class="action-step">
+      <strong>📝 Твоё первое действие прямо сейчас:</strong> Закрой эту страницу и открой свой банк. Посчитай точный баланс. Напиши его. Это твоя отправная точка.
+    </div>
+  </div>
+
+  <!-- ADDITIONAL: Bonus templates -->
+  <div class="chapter" style="background: linear-gradient(135deg, #fef9e7, #f8f5f0);">
+    <div class="meta">🎁 Бонус</div>
+    <h3>Шаблоны и инструменты</h3>
+    <p>Вместе с гайдом ты получаешь:</p>
+    <p>✅ <strong>Google Sheets шаблон бюджета</strong> — автоматический расчёт 50/30/20</p>
+    <p>✅ <strong>Трекер долгов</strong> — таблица для погашения кредитов</p>
+    <p>✅ <strong>Калькулятор сложного процента</strong> — визуализация твоих инвестиций</p>
+    <p>✅ <strong>Чек-лист "Первый месяц"</strong> — что делать день за днём</p>
+    <p>✅ <strong>Список книг и ресурсов</strong> — для углублённого изучения</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="cta-final">
+    <h2>💰 Готов начать?</h2>
+    <p>Полный гайд «10 шагов к финансовой свободе» — $19<br>48 страниц практического контента + готовые шаблоны</p>
+    <a class="buy-btn" href="/checkout.html">🚀 Купить за $19</a>
+    <p style="margin-top:12px; font-size:12px; color:rgba(255,255,255,0.4);">Оплата через Stripe • Мгновенная доставка PDF на email</p>
+  </div>
+
+  <div class="footer">
+    Fin Flow © 2026 — Финансовая грамотность для каждого
+  </div>
+
+</div>
+</body>
+</html>

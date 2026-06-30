@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fin Flow — Финансовая грамотность для начинающих</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0e1a;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Particles */
+  #bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,184,48,0.12);
+    border: 1px solid rgba(232,184,48,0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #e8b830;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 7vw, 48px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .hero h1 span {
+    background: linear-gradient(135deg, #e8b830, #f5d742);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: clamp(16px, 3.5vw, 19px);
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+  .hero .cta-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #e8b830, #d4a520);
+    color: #0a0e1a;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    margin-bottom: 12px;
+  }
+  .hero .cta-btn:hover { transform: scale(1.03); }
+  .hero .sub-link {
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .hero .sub-link:hover { color: #e8b830; }
+
+  /* Character scene */
+  .hero-scene {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+  }
+  .scene-coin {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 35% 35%, #ffd700, #e8b830);
+    border-radius: 50%;
+    border: 3px solid #b8860b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #8a6500;
+    animation: float 3s ease-in-out infinite;
+  }
+  .scene-coin:nth-child(1) { top: 20px; left: 30px; animation-delay: 0s; }
+  .scene-coin:nth-child(2) { top: 60px; left: 120px; animation-delay: 0.5s; width: 60px; height: 60px; font-size: 24px; }
+  .scene-coin:nth-child(3) { top: 110px; left: 40px; animation-delay: 1s; width: 40px; height: 40px; font-size: 16px; }
+  .scene-coin:nth-child(4) { top: 30px; left: 140px; animation-delay: 1.5s; width: 35px; height: 35px; font-size: 14px; }
+  .scene-coin:nth-child(5) { top: 130px; left: 110px; animation-delay: 2s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+  }
+
+  /* Features */
+  .features {
+    padding: 60px 0;
+  }
+  .features h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  .feature-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .feature-card .icon {
+    font-size: 28px;
+    min-width: 40px;
+  }
+  .feature-card h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .feature-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Product card */
+  .product {
+    padding: 40px 0;
+  }
+  .product-card {
+    background: linear-gradient(145deg, #0d1326, #141d38);
+    border: 1px solid rgba(232,184,48,0.15);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .product-card h2 { font-size: 24px; margin-bottom: 8px; }
+  .product-card .price {
+    font-size: 42px;
+    font-weight: 800;
+    color: #e8b830;
+    margin: 16px 0;
+  }
+  .product-card .price small { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.3); }
+  .product-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 20px 0;
+  }
+  .product-card li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .product-card li::before { content: '✅ '; }
+  .product-card .buy-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e8b830, #d4a520);
+    color: #0a0e1a;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    margin-top: 8px;
+  }
+  .product-card .buy-btn:hover { transform: scale(1.02); }
+
+  /* Free PDF */
+  .free-section {
+    padding: 40px 0;
+    text-align: center;
+  }
+  .free-card {
+    background: linear-gradient(145deg, rgba(34,197,94,0.08), rgba(34,197,94,0.03));
+    border: 1px solid rgba(34,197,94,0.15);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .free-card h3 { font-size: 20px; margin-bottom: 8px; }
+  .free-card p { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 16px; }
+  .free-form {
+    display: flex;
+    gap: 8px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .free-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+  }
+  .free-form input:focus { border-color: #e8b830; }
+  .free-form button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .free-form button:hover { opacity: 0.9; }
+  #free-status { font-size: 13px; margin-top: 8px; min-height: 20px; }
+
+  /* YouTube preview */
+  .youtube-preview {
+    padding: 40px 0;
+  }
+  .youtube-preview h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .yt-card {
+    display: flex;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 14px;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .yt-card:hover { background: rgba(255,255,255,0.06); }
+  .yt-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1a1f3a, #0d1326);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .yt-info h4 { font-size: 14px; margin-bottom: 2px; }
+  .yt-info p { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    color: rgba(255,255,255,0.2);
+    font-size: 13px;
+  }
+
+  .connect-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 24px;
+    background: rgba(232,184,48,0.1);
+    border: 1px solid rgba(232,184,48,0.2);
+    border-radius: 10px;
+    color: #e8b830;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .connect-btn:hover { background: rgba(232,184,48,0.2); }
+
+  @media (max-width: 420px) {
+    .free-form { flex-direction: column; }
+    .feature-card { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">📚 Финансовая грамотность для начинающих</div>
+    <div class="hero-scene">
+      <div class="scene-coin">$</div>
+      <div class="scene-coin">₽</div>
+      <div class="scene-coin">€</div>
+      <div class="scene-coin">₿</div>
+      <div class="scene-coin">$</div>
+    </div>
+    <h1>Твой путь к <span>финансовой свободе</span> начинается сегодня</h1>
+    <p>Понятные уроки, готовые шаблоны и пошаговый план. Без сложных терминов и заумных графиков.</p>
+    <a class="cta-btn" href="/fin-guide.html">📗 Купить гайд за $19</a>
+    <br>
+    <a class="sub-link" href="#free">↓ Скачать бесплатный PDF</a>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Почему это работает</h2>
+
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <div>
+        <h3>Только практика</h3>
+        <p>Никакой воды. Каждый урок — конкретное действие, которое меняет твои финансы.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⏱️</div>
+      <div>
+        <h3>10 минут в день</h3>
+        <p>Короткие видео в формате Shorts. Не нужно выделять часы — достаточно 10 минут.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <div>
+        <h3>Готовые шаблоны</h3>
+        <p>Бюджет, трекер долгов, калькулятор инвестиций — всё уже готово к использованию.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🛡️</div>
+      <div>
+        <h3>Без риска</h3>
+        <p>Проверенные стратегии, которые работают. Никаких «схем быстрого обогащения».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="product" id="buy">
+    <div class="product-card">
+      <h2>📗 10 шагов к финансовой свободе</h2>
+      <p style="color:rgba(255,255,255,0.5); font-size:14px;">Полное практическое руководство</p>
+      <div class="price">$19 <small>навсегда</small></div>
+      <ul>
+        <li>48 страниц практического контента</li>
+        <li>10 пошаговых уроков</li>
+        <li>Google Sheets шаблон бюджета</li>
+        <li>Трекер долгов и расходов</li>
+        <li>Калькулятор сложного процента</li>
+        <li>Чек-лист на первый месяц</li>
+        <li>Мгновенная доставка на email</li>
+      </ul>
+      <a class="buy-btn" href="/checkout.html">🚀 Купить сейчас — $19</a>
+      <p style="margin-top:10px; font-size:12px; color:rgba(255,255,255,0.2);">Оплата через Stripe • 2.9% комиссия • Доставка PDF на email</p>
+    </div>
+  </section>
+
+  <!-- FREE PDF -->
+  <section class="free-section" id="free">
+    <div class="free-card">
+      <h3>🎁 Бесплатный чек-лист</h3>
+      <p>«5 шагов к финансовой дисциплине» — PDF с первыми шагами</p>
+      <div class="free-form">
+        <input type="email" id="free-email" placeholder="Твой email для получения PDF">
+        <button onclick="getFreePdf()">Получить PDF</button>
+      </div>
+      <div id="free-status"></div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE PREVIEW -->
+  <section class="youtube-preview">
+    <h2>🎬 Смотри на YouTube Shorts</h2>
+    <div class="yt-card">
+      <div class="yt-thumb">$</div>
+      <div class="yt-info">
+        <h4>Что такое деньги на самом деле?</h4>
+        <p>Как изменить отношение к финансам • 45 сек</p>
+      </div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-thumb">📊</div>
+      <div class="yt-info">
+        <h4>Правило 50/30/20 — формула богатства</h4>
+        <p>Простая система распределения денег • 55 сек</p>
+      </div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-thumb">🛡️</div>
+      <div class="yt-info">
+        <h4>Финансовая подушка: сколько нужно?</h4>
+        <p>Как защитить себя от непредвиденных ситуаций • 50 сек</p>
+      </div>
+    </div>
+    <a class="connect-btn" href="#" style="display:block; text-align:center; max-width:200px; margin:16px auto 0;">📺 Смотреть все видео</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Fin Flow © 2026 • Финансовая грамотность для каждого
+  </footer>
+</div>
+
+<script>
+// BG particles
+(function(){
+  const c = document.getElementById('bg-canvas');
+  const ctx = c.getContext('2d');
+  let p = [];
+  function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  for(let i=0;i<50;i++) p.push({x:Math.random()*c.width, y:Math.random()*c.height, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4, r:Math.random()*2+1, a:Math.random()*0.2+0.05});
+  function draw() {
+    ctx.clearRect(0,0,c.width,c.height);
+    p.forEach(q=>{
+      q.x+=q.vx; q.y+=q.vy;
+      if(q.x<0) q.x=c.width; if(q.x>c.width) q.x=0;
+      if(q.y<0) q.y=c.height; if(q.y>c.height) q.y=0;
+      ctx.beginPath(); ctx.arc(q.x,q.y,q.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(232,184,48,${q.a})`; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Free PDF handler
+function getFreePdf() {
+  const email = document.getElementById('free-email').value.trim();
+  const status = document.getElementById('free-status');
+  if (!email || !email.includes('@')) {
+    status.textContent = '❌ Введи корректный email';
+    status.style.color = '#ef4444';
+    return;
+  }
+  // Save to localStorage
+  try {
+    const saved = JSON.parse(localStorage.getItem('fin_subs') || '[]');
+    if (!saved.includes(email)) { saved.push(email); localStorage.setItem('fin_subs', JSON.stringify(saved)); }
+  } catch(e) {}
+  status.textContent = '✅ PDF открыт! Проверь браузер.';
+  status.style.color = '#22c55e';
+  window.open('https://tmpfiles.org/wFwSJgLgrCvK/10_vocal_exercises.pdf', '_blank');
+}
+</script>
+</body>
+</html>

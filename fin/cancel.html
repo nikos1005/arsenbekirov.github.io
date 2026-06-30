@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Cancelled — Voice & Flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    :root { --gold: #C9A959; --text-muted: #999; --border: rgba(255,255,255,0.08); }
+
+    .card {
+      max-width: 480px;
+      width: 100%;
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .icon { font-size: 48px; margin-bottom: 16px; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: var(--gold);
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    .free-note {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .free-note p { font-size: 13px; margin-bottom: 12px; }
+    .btn-free {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .btn-free:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon">💭</div>
+  <h1>Payment Cancelled</h1>
+  <p>No problem — your voice is still here when you're ready.</p>
+
+  <div class="btn-group">
+    <a href="/checkout.html" class="btn-primary">← Try Again</a>
+    <a href="/voice-flow.html" class="btn-secondary">Back to Voice & Flow</a>
+  </div>
+
+  <div class="free-note">
+    <p>In the meantime, grab the free PDF:</p>
+    <a href="10_vocal_exercises_premium.html" class="btn-free">📥 Free 10 Vocal Exercises</a>
+  </div>
+</div>
+
+</body>
+</html>
