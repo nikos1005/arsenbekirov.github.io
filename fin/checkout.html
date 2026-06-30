@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10 шагов к финансовой свободе — Purchase | Voice & Flow</title>
+  <title>10 шагов к финансовой свободе — Purchase | Fin Flow</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -179,67 +179,29 @@
     }
   </style>
 </head>
-<body>
-
-<div class="card">
-  <div class="badge">🎤 Voice & Flow</div>
-  <h1>10 Days to a <span>Stronger Voice</span></h1>
-  <p class="subtitle">Complete vocal training course with Arsen Bekirov</p>
-
-  <div class="price">$19</div>
-  <div class="price-label">One-time payment — lifetime access</div>
-
-  <div id="error" class="error-msg"></div>
-  <button id="checkout-button" onclick="handleCheckout()">
-    🎵 Buy Now — $19
-  </button>
-
-  <ul class="features">
-    <li>10 detailed lessons with exercises (10-20 min each)</li>
-    <li>Complete exercise descriptions with pro tips</li>
-    <li>Printable progress tracking checklist</li>
-    <li>Bonus: Advanced warm-up guide included</li>
-    <li>Access on any device — unlimited lifetime</li>
-  </ul>
-
-  <div class="secure">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-    Secured by Stripe · Your payment info is encrypted
-  </div>
-
-  <div class="back-link">
-    <a href="/voice-flow.html">← Back to Voice & Flow</a>
-  </div>
-</div>
-
-<script>
-async function handleCheckout() {
-  const btn = document.getElementById('checkout-button');
-  const err = document.getElementById('error');
-  err.style.display = 'none';
-  btn.disabled = true;
-  btn.classList.add('loading');
-
-  try {
-    const response = await fetch('/.netlify/functions/create-checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    });
-    const data = await response.json();
-
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      throw new Error(data.error || 'Something went wrong');
-    }
-  } catch (error) {
-    err.textContent = 'Failed to create checkout. Please try again.';
-    err.style.display = 'block';
-    btn.disabled = false;
-    btn.classList.remove('loading');
-  }
-}
-</script>
-
-</body>
+<body><div class="container">
+    <div class="card">
+        <div class="price-label">Один платёж — доступ навсегда</div>
+        <div class="price">990 ₽</div>
+        
+        <div style="background:#f8f5f0;padding:24px;border-radius:12px;margin:20px 0;text-align:left;">
+            <div style="font-size:14px;color:#666;margin-bottom:8px;">ДЛЯ ОПЛАТЫ ПЕРЕВЕДИТЕ</div>
+            <div style="font-size:16px;font-weight:600;margin-bottom:4px;">990 ₽ по номеру телефона</div>
+            <div style="font-size:24px;font-weight:700;color:#1a1a2e;margin-bottom:16px;letter-spacing:2px;">+7 978 052-50-45</div>
+            <div style="font-size:12px;color:#888;">СБП • Т-Банк • Сбер • любой банк</div>
+        </div>
+        
+        <div style="background:#e8b830;color:#000;padding:14px;border-radius:8px;font-weight:600;font-size:14px;margin:20px 0;">
+            ⚡ После оплаты гайд придёт на почту в течение 5 минут
+        </div>
+        
+        <a href="https://arsenbekirov.com/fin/guide.html" style="display:block;padding:18px;background:linear-gradient(135deg,#e8b830,#c9a020);color:#000;text-align:center;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;">
+            💰 Уже оплатил — открыть гайд
+        </a>
+        
+        <div style="margin-top:24px;font-size:12px;color:#666;text-align:center;">
+            Есть вопросы? Напишите в Telegram: @NikosKworkAssistantBot
+        </div>
+    </div>
+</div></body>
 </html>
