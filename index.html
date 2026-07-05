@@ -615,7 +615,7 @@
       box-shadow:0 12px 40px rgba(201,169,89,0.12);
       background:rgba(0,0,0,0.3);
     }
-    
+  
     .stat-card .number{
       font-family:'Playfair Display',serif;
       font-size:52px;
@@ -1517,7 +1517,7 @@
       <a href="#media">Медиа</a>
       <a href="#booking">Заказать</a>
       <a href="#contact">Контакты</a>
-      <a href="/voice-flow.html" style="color:var(--gold);font-weight:600">🎤 Voice & Flow</a>
+    
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
     <div class="lang-switcher"><button class="lang-btn active" data-lang="ru" onclick="switchLanguage('ru')">RU</button><button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button></div>
@@ -2632,15 +2632,15 @@ let currentLang = localStorage.getItem('site_lang') || 'ru';
 function switchLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('site_lang', lang);
-  
+
   // When switching back to RU, reload page to restore original text
   if (lang === 'ru') {
     location.reload();
     return;
   }
-  
+
   document.documentElement.lang = 'en';
-  
+
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function(node) {
       const p = node.parentElement;
@@ -2648,14 +2648,14 @@ function switchLanguage(lang) {
       return NodeFilter.FILTER_ACCEPT;
     }
   });
-  
+
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
-  
+
   nodes.forEach(function(tn) {
     let text = tn.textContent;
     if (!text || !text.trim()) return;
-    
+  
     let changed = false;
     for (let i = 0; i < i18nKeys.length; i++) {
       const ru = i18nKeys[i];
@@ -2666,7 +2666,7 @@ function switchLanguage(lang) {
     }
     if (changed) tn.textContent = text;
   });
-  
+
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === 'en');
   });
