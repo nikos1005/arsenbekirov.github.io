@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница не найдена — 404 | Арсен Бекиров</title>
+  <meta name="description" content="Страница не найдена. Вернитесь на главную или воспользуйтесь навигацией.">
+  <link rel="canonical" href="https://arsenbekirov.com/404.html">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:title" content="Страница не найдена — Арсен Бекиров">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arsenbekirov.com/404.html">
+  <meta property="og:description" content="Страница не найдена. Вернитесь на главную.">
+  <meta property="og:image" content="https://arsenbekirov.com/media/og-image.jpg">
+  <meta property="og:site_name" content="Arsen Bekirov">
+  <meta name="yandex-verification" content="fc1b55523603e9d3">
+  <meta name="google-site-verification" content="ysrb3AkEJKkWGL6ivlgzk-0TLn-GAKv6pZnPFTWM680">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+  <style>
+    .error-page {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+    .error-page .error-code {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 0 40px rgba(201,169,89,0.3);
+    }
+    .error-page h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .error-page p {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 480px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .error-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 600px;
+    }
+    .error-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid var(--gold-dark);
+      border-radius: var(--radius);
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background: rgba(201,169,89,0.06);
+    }
+    .error-links a:hover {
+      background: rgba(201,169,89,0.15);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(201,169,89,0.12);
+    }
+    .error-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 24px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div id="progress-bar"></div>
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">Arsen <span>Bekirov</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Главная</a>
+      <a href="/biography.html">Биография</a>
+      <a href="/music.html">Музыка</a>
+      <a href="/qirim.html">Къырым</a>
+      <a href="/vocal-school.html">Школа вокала</a>
+      <a href="/booking.html">Заказать</a>
+      <a href="/press.html">Пресса</a>
+      <a href="/en/" class="nav-lang"><i class="fas fa-globe"></i> EN</a>
+      <div class="lang-mobile"><a href="/en/">English</a></div>
+    </div>
+    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <section class="error-page">
+    <div class="error-code">404</div>
+    <div class="error-divider"></div>
+    <h1>Страница не найдена</h1>
+    <p>Возможно, страница была перемещена или удалена. Попробуйте начать с главной или воспользуйтесь навигацией.</p>
+    <div class="error-links">
+      <a href="/"><i class="fas fa-home"></i> Главная</a>
+      <a href="/biography.html"><i class="fas fa-user"></i> Биография</a>
+      <a href="/music.html"><i class="fas fa-music"></i> Музыка</a>
+      <a href="/qirim.html"><i class="fas fa-globe"></i> Къырым</a>
+      <a href="/vocal-school.html"><i class="fas fa-microphone"></i> Школа вокала</a>
+      <a href="/booking.html"><i class="fas fa-calendar-check"></i> Заказать</a>
+      <a href="/press.html"><i class="fas fa-file-alt"></i> Пресса</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Arsen Bekirov. Все права защищены.</p>
+    <p style="margin-top:8px">
+      <a href="/">Главная</a> · 
+      <a href="/biography.html">Биография</a> · 
+      <a href="/music.html">Музыка</a> · 
+      <a href="/qirim.html">Къырым</a> · 
+      <a href="/vocal-school.html">Школа вокала</a> · 
+      <a href="/booking.html">Заказать</a> · 
+      <a href="/press.html">Пресса</a> · 
+      <a href="/en/">EN</a>
+    </p>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
