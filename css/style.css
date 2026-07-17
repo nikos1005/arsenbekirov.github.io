@@ -1252,6 +1252,36 @@ nav.scrolled{background:rgba(10,10,15,0.95)}
 }
 #lightbox .close-lb:hover{opacity:1}
 
+/* ===== BREADCRUMBS ===== */
+.breadcrumbs {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid rgba(201,169,89,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover {
+  color: var(--gold);
+}
+.breadcrumbs .sep {
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+}
+.breadcrumbs .current {
+  color: var(--gold);
+  font-weight: 500;
+}
+
 /* ===== TOAST ===== */
 .toast{
   position:fixed;bottom:100px;
