@@ -37,8 +37,9 @@
     .epk-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 28px}
     .epk-fact{background:#f8f6f0;padding:14px 18px;border-radius:6px;font-size:14px;color:#333}
     .epk-fact strong{display:block;color:#1a1a2e;font-size:15px;margin-bottom:2px}
-    .epk-videos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0 28px}
+    .epk-videos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 28px}
     .epk-video iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:6px}
+    .epk-video-caption{font-size:13px;color:#666;margin-top:8px;text-align:center;line-height:1.4}
     .epk-streaming{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 28px}
     .epk-streaming a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#f8f6f0;border-radius:6px;text-decoration:none;color:#333;font-size:14px;transition:all 0.2s;border:1px solid #e0dcd0}
     .epk-streaming a:hover{background:#d4af37;color:#fff;border-color:#d4af37}
@@ -79,6 +80,7 @@
       .epk-body{padding:16px 20px 30px}
       .epk-facts{grid-template-columns:1fr}
       .epk-videos{grid-template-columns:1fr}
+      .epk-video{margin-bottom:20px}
     }
   </style>
 </head>
@@ -113,10 +115,16 @@
     <div class="section-title">Video</div>
     <div class="epk-videos">
       <div class="epk-video">
-        <iframe loading="lazy" src="https://www.youtube.com/embed/" allowfullscreen title="Arsen Bekirov performance"></iframe>
+        <iframe loading="lazy" src="https://www.youtube.com/embed/_R1rVqpNtrM" allowfullscreen title="Seni Sevem — QARADENIZ award-winning music video"></iframe>
+        <div class="epk-video-caption">Seni Sevem — QARADENIZ award-winning video</div>
       </div>
       <div class="epk-video">
-        <iframe loading="lazy" src="https://www.youtube.com/embed/" allowfullscreen title="Arsen Bekirov performance"></iframe>
+        <iframe loading="lazy" src="https://www.youtube.com/embed/ZzH5Nvvx-j8" allowfullscreen title="Nazli nazli — Crimean Tatar folk song, live"></iframe>
+        <div class="epk-video-caption">Nazli nazli — Crimean Tatar folk song, live</div>
+      </div>
+      <div class="epk-video">
+        <iframe loading="lazy" src="https://www.youtube.com/embed/Rz2K6SqCLCY" allowfullscreen title="Maneler — from Qirim EP (studio)"></iframe>
+        <div class="epk-video-caption">Maneler — from Qirim EP</div>
       </div>
     </div>
 
