@@ -260,6 +260,8 @@ nav.scrolled{background:rgba(10,10,15,0.95)}
 .epk-video iframe{max-width:100%}
 pre,code{word-break:break-all;white-space:pre-wrap}
 .streaming-grid .streaming-card{min-width:0}
+.hero{overflow-x:clip}
+.inner-hero{overflow-x:clip}
 .hero-scroll .mouse::after{
   content:'';
   position:absolute;
