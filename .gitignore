@@ -5,3 +5,6 @@ Thumbs.db
 *.swo
 *~
 .git
+node_modules/
+package.json
+package-lock.json
