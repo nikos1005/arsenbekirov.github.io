@@ -85,7 +85,7 @@ Arsen Bekirov is a Crimean Tatar tenor and ethno-pop artist, Honored Artist of t
 
 **Listen:** [Spotify](https://open.spotify.com/artist/09qk3MsxjyxpWXhpCm7CXB) | [Website](https://arsenbekirov.com) | [Instagram](https://instagram.com/mr.arsenbekirov)
 
-**Book:** [WhatsApp](https://wa.me/79780525045) | [Telegram](https://t.me/NikosKworkAssistantBot)
+**Book:** [WhatsApp](https://wa.me/79780525045) | [Telegram](https://t.me/nikos1005)
 
 ---
 *© {datetime.now().year} Arsen Bekirov. All rights reserved.*
