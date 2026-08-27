@@ -219,10 +219,16 @@ ym(109875276, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 
   document.querySelectorAll('.photo-item').forEach(item => {
     item.addEventListener('click', () => {
-      const bg = item.style.backgroundImage;
-      if (bg) {
-        img.src = bg.replace(/url\(["']?/, '').replace(/["']?\)/, '');
+      const innerImg = item.querySelector('img');
+      if (innerImg && innerImg.src) {
+        img.src = innerImg.src;
         lb.classList.add('active');
+      } else {
+        const bg = item.style.backgroundImage;
+        if (bg) {
+          img.src = bg.replace(/url\(["']?/, '').replace(/["']?\)/, '');
+          lb.classList.add('active');
+        }
       }
     });
   });
