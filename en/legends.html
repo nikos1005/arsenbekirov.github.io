@@ -59,6 +59,7 @@
       <a href="/en/">Home</a>
       <a href="/en/biography.html">Biography</a>
       <a href="/music.html">Music</a>
+      <a href="/en/video.html">Video</a>
       <a href="/en/news.html">News</a>
       <a href="/en/qirim.html">Qirim</a>
       <a href="/en/legends.html" class="active">Song Stories</a>
@@ -71,36 +72,40 @@
     <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
   </nav>
 
-  <section class="inner-hero">
+  <section class="inner-hero" style="position:relative">
+    <div class="legends-hero-bg"></div>
     <div class="inner-hero-bg"></div>
     <h1>Song Stories</h1>
     <div class="subtitle">Legends of Crimean Tatar folk songs</div>
+    <div class="legends-divider"></div>
   </section>
 
   <section class="content-page">
-    <div class="content-body">
+    <div class="content-body" style="max-width:960px">
       <nav class="breadcrumbs"><a href="/en/">Home</a><span class="sep"> → </span><span class="current">Song Stories</span></nav>
-      <p class="lead">Here I collect the stories of Crimean Tatar folk songs — where they come from, how they changed, and what lies behind a familiar melody. This is part of a larger mission: to preserve not only the songs themselves, but the memory of how they lived.</p>
+      <p class="lead" style="text-align:center;max-width:600px;margin:0 auto 16px">Here I collect the stories of Crimean Tatar folk songs — where they come from, how they changed, and what lies behind a familiar melody.</p>
 
-      <div class="legends-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;margin-top:40px">
-        <a href="/en/legends-yosmam.html" class="highlight-box" style="text-decoration:none;display:block;padding:0;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(201,169,89,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background:linear-gradient(135deg,rgba(201,169,89,0.15),rgba(201,169,89,0.05));padding:32px 28px">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-              <span style="background:var(--gold);color:#0a0a0a;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px">Song of Parting · Ak-yar</span>
-            </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold-light);margin:0 0 12px">Yosmam <span style="font-size:18px;color:var(--text-muted);font-weight:400">(My Beauty)</span></h3>
-            <p style="color:var(--text-muted);font-size:15px;line-height:1.6;margin:0">Why one song has nine wandering verses and two destinies — a wedding song and a soldier's farewell</p>
-            <div style="margin-top:20px;color:var(--gold);font-size:14px;font-weight:500">Read <i class="fas fa-arrow-right" style="margin-left:6px"></i></div>
+      <div class="legends-grid">
+        <a href="/en/legends-yosmam.html" class="legends-card">
+          <div class="legends-card-img">
+            <img src="/media/press/arsen-stage-national.webp" alt="Arsen Bekirov — Yosmam" loading="lazy" width="800" height="450">
+          </div>
+          <div class="legends-card-body">
+            <span class="legends-card-tag">Song of Parting · Ak-yar</span>
+            <h3 class="legends-card-title">Yosmam <span>(My Beauty)</span></h3>
+            <p class="legends-card-teaser">Why one song has nine wandering verses and two destinies — a wedding song and a soldier's farewell</p>
+            <span class="legends-card-link">Read <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="/en/legends-bizim-taraf.html" class="highlight-box" style="text-decoration:none;display:block;padding:0;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(201,169,89,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''"  >
-          <div style="background:linear-gradient(135deg,rgba(201,169,89,0.15),rgba(201,169,89,0.05));padding:32px 28px">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-              <span style="background:var(--gold);color:#0a0a0a;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px">Song of Return · Original</span>
-            </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold-light);margin:0 0 12px">Bizim Taraf <span style="font-size:18px;color:var(--text-muted);font-weight:400">(Our Land)</span></h3>
-            <p style="color:var(--text-muted);font-size:15px;line-height:1.6;margin:0">How a cheerful dance song from 1966 became an anthem of longing for the homeland — and what Server Kakura had to do with it</p>
-            <div style="margin-top:20px;color:var(--gold);font-size:14px;font-weight:500">Read <i class="fas fa-arrow-right" style="margin-left:6px"></i></div>
+        <a href="/en/legends-bizim-taraf.html" class="legends-card">
+          <div class="legends-card-img">
+            <img src="https://img.youtube.com/vi/rgrmwC5i-Ag/hqdefault.jpg" alt="Server Kakura — Bizim Taraf" loading="lazy" width="640" height="360">
+          </div>
+          <div class="legends-card-body">
+            <span class="legends-card-tag">Song of Return · Original</span>
+            <h3 class="legends-card-title">Bizim Taraf <span>(Our Land)</span></h3>
+            <p class="legends-card-teaser">How a cheerful dance song from 1966 became an anthem of longing for the homeland — and what Server Kakura had to do with it</p>
+            <span class="legends-card-link">Read <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
@@ -122,6 +127,7 @@
       <a href="/en/">Home</a> · 
       <a href="/en/biography.html">Biography</a> · 
       <a href="/music.html">Music</a> · 
+      <a href="/en/video.html">Video</a> · 
       <a href="/en/news.html">News</a> · 
       <a href="/en/qirim.html">Qirim</a> · 
       <a href="/en/legends.html">Song Stories</a> · 
