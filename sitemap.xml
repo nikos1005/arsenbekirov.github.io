@@ -2,158 +2,158 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arsenbekirov.com/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/biography.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/music.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://arsenbekirov.com/en/</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/qirim.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://arsenbekirov.com/tr/</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/news.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://arsenbekirov.com/biography.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/vocal-school.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://arsenbekirov.com/music.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/news.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/booking.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/press.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/biography.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/en/qirim.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <loc>https://arsenbekirov.com/qirim.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://arsenbekirov.com/en/news.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://arsenbekirov.com/vocal-school.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/press.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/tr/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/tr/biography.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/tr/qirim.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/uroki-vokala-simferopol.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/epk.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/legends.html</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/legends.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/legends-yosmam.html</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/legends-yosmam.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/legends-bizim-taraf.html</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://arsenbekirov.com/en/legends-bizim-taraf.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arsenbekirov.com/video.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://arsenbekirov.com/epk.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/uroki-vokala-simferopol.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/biography.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/news.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/press.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/qirim.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/legends.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/legends-yosmam.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/en/legends-bizim-taraf.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://arsenbekirov.com/en/video.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/tr/biography.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arsenbekirov.com/tr/qirim.html</loc>
+    <lastmod>2026-08-28T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
