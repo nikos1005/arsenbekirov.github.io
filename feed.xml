@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Arsen Bekirov — Official Site</title>
+    <link>https://arsenbekirov.com</link>
+    <description>Cries of Crimean Tatar music — Arsen Bekirov, Crimean Tatar tenor, Honored Artist. News, articles, concerts, releases.</description>
+    <language>ru</language>
+    <lastBuildDate>Mon, 31 Aug 2026 12:00:00 +0300</lastBuildDate>
+    <atom:link href="https://arsenbekirov.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://arsenbekirov.com/media/og-image.jpg</url>
+      <title>Arsen Bekirov</title>
+      <link>https://arsenbekirov.com</link>
+    </image>
+
+    <item>
+      <title>«Бизим тараф» — как весёлая песня стала гимном тоски по Родине</title>
+      <link>https://arsenbekirov.com/legends-bizim-taraf.html</link>
+      <guid isPermaLink="true">https://arsenbekirov.com/legends-bizim-taraf.html</guid>
+      <pubDate>Fri, 29 Aug 2026 12:00:00 +0300</pubDate>
+      <description>Как танцевальная песня 1966 года стала гимном тоски по Родине: история «Бизим тараф» и роль Сервера Какуры — исследование Арсена Бекирова.</description>
+      <category>Легенды</category>
+    </item>
+
+    <item>
+      <title>«Ёсмам» — история одной крымскотатарской песни</title>
+      <link>https://arsenbekirov.com/legends-yosmam.html</link>
+      <guid isPermaLink="true">https://arsenbekirov.com/legends-yosmam.html</guid>
+      <pubDate>Wed, 27 Aug 2026 12:00:00 +0300</pubDate>
+      <description>Откуда родом песня «Ёсмам», почему у неё девять кочующих куплетов и две исполнительские традиции — исследование Арсена Бекирова.</description>
+      <category>Легенды</category>
+    </item>
+
+    <item>
+      <title>Раздел «Видео» — галерея выступлений</title>
+      <link>https://arsenbekirov.com/video.html</link>
+      <guid isPermaLink="true">https://arsenbekirov.com/video.html</guid>
+      <pubDate>Sat, 23 Aug 2026 12:00:00 +0300</pubDate>
+      <description>Полная галерея выступлений Арсена Бекирова на YouTube — Aman Yar, Çelebim, Йырларым, Nazlı Leylâm и другие.</description>
+      <category>Видео</category>
+    </item>
+
+    <item>
+      <title>Qirim EP — 9 треков этно-попа</title>
+      <link>https://arsenbekirov.com/music.html</link>
+      <guid isPermaLink="true">https://arsenbekirov.com/music.html</guid>
+      <pubDate>Mon, 01 Jan 2025 12:00:00 +0300</pubDate>
+      <description>Дебютный EP Арсена Бекирова — девять авторских треков, соединяющих крымскотатарскую мелодику с современным этно-поп звучанием. Лауреат премии QARADENIZ Production.</description>
+      <category>Музыка</category>
+    </item>
+
+    <item>
+      <title>31 песня с грэмми-продюсером Иэном Бреннаном</title>
+      <link>https://arsenbekirov.com/qirim.html</link>
+      <guid isPermaLink="true">https://arsenbekirov.com/qirim.html</guid>
+      <pubDate>Mon, 06 Apr 2026 12:00:00 +0300</pubDate>
+      <description>В 2026 году в Стамбуле Арсен записал 31 песню с Иэном Бреннаном — обладателем премии «Грэмми», известным полевыми записями музыки исчезающих традиций.</description>
+      <category>Новости</category>
+    </item>
+  </channel>
+</rss>

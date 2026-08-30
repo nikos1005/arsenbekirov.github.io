@@ -170,6 +170,7 @@
   <meta name="yandex-verification" content="94e2159bf86344e5">
   <meta name="google-site-verification" content="ysrb3AkEJKkWGL6ivlgzk-0TLn-GAKv6pZnPFTWM680">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap">
+  <link rel="alternate" type="application/rss+xml" title="Arsen Bekirov — Feed" href="/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.youtube.com">
@@ -249,7 +250,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline poster="/media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg">
+    <video class="hero-video" autoplay muted loop playsinline poster="/media/bg/59dd5391-dcd7-46e7-9ccf-fd8cc8d2f340.jpg" fetchpriority="high">
       <source src="/media/bg/hero-bg-opt.mp4" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
@@ -542,7 +543,7 @@
 
   <!-- MEDIA -->
   <section class="section" id="media" style="position:relative;overflow:hidden;border-radius:var(--radius)">
-    <video autoplay muted loop playsinline poster="/media/bg/seni-seven-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.45) saturate(0.85)">
+    <video muted loop playsinline preload="none" poster="/media/bg/seni-seven-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.45) saturate(0.85)">
       <source src="/media/bg/media-bg-video-opt.mp4" type="video/mp4">
     </video>
     <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.55) 100%);z-index:1;pointer-events:none"></div>
@@ -688,5 +689,19 @@
   </footer>
 
   <script src="/js/script.js"></script>
+  <script>
+  /* Lazy-start media section video when scrolled into view */
+  (function(){
+    var v = document.querySelector('#media video');
+    if(!v) return;
+    var io = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){
+        v.play().catch(function(){});
+        io.disconnect();
+      }
+    }, {rootMargin:'200px'});
+    io.observe(v);
+  })();
+  </script>
 </body>
 </html>
