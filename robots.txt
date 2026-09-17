@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+# Фоновые видеоролики интерфейса — не для видео-индексации (см. Search Console → Видео)
+Disallow: /media/bg/hero-bg-mobile.mp4
+Disallow: /media/bg/hero-bg-opt.mp4
+# используется в качестве фона на /, та же ситуация
+Disallow: /media/bg/media-bg-video-opt.mp4
 Sitemap: https://arsenbekirov.com/sitemap.xml
