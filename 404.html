@@ -123,9 +123,9 @@
   <section class="error-page">
     <div class="error-code">404</div>
     <div class="error-divider"></div>
-    <h1>Страница не найдена</h1>
-    <p>Возможно, страница была перемещена или удалена. Попробуйте начать с главной или воспользуйтесь навигацией.</p>
-    <div class="error-links">
+    <h1 id="err-title">Страница не найдена</h1>
+    <p id="err-text">Возможно, страница была перемещена или удалена. Попробуйте начать с главной или воспользуйтесь навигацией.</p>
+    <div class="error-links" id="err-links">
       <a href="/"><i class="fas fa-home"></i> Главная</a>
       <a href="/biography.html"><i class="fas fa-user"></i> Биография</a>
       <a href="/music.html"><i class="fas fa-music"></i> Музыка</a>
@@ -155,5 +155,22 @@
   </footer>
 
   <script src="/js/script.js" defer></script>
+  <script>
+  (function(){
+    var p = location.pathname;
+    var lang = p.slice(0,4) === '/en/' ? 'en' : (p.slice(0,4) === '/tr/' ? 'tr' : 'ru');
+    if (p === '/en' || p === '/tr') lang = p.slice(1);
+    var t = {
+      ru: {docLang:'ru', title:'Страница не найдена', text:'Возможно, страница была перемещена или удалена. Попробуйте начать с главной или воспользуйтесь навигацией.', links:[['/','Главная','fa-home'],['/biography.html','Биография','fa-user'],['/music.html','Музыка','fa-music'],['/qirim.html','Къырым','fa-globe'],['/vocal-school.html','Школа вокала','fa-microphone'],['/booking.html','Заказать','fa-calendar-check'],['/press.html','Пресса','fa-file-alt']]},
+      en: {docLang:'en', title:'Page not found', text:'The page may have been moved or removed. Try the home page or use the navigation.', links:[['/en/','Home','fa-home'],['/en/biography.html','Biography','fa-user'],['/en/music.html','Music','fa-music'],['/en/qirim.html','Qirim','fa-globe'],['/en/vocal-school.html','Vocal School','fa-microphone'],['/en/booking.html','Booking','fa-calendar-check'],['/en/press.html','Press','fa-file-alt']]},
+      tr: {docLang:'tr', title:'Sayfa bulunamadı', text:'Sayfa taşınmış veya silinmiş olabilir. Ana sayfadan başlamayı veya gezinmeyi deneyin.', links:[['/','Ana Sayfa','fa-home'],['/tr/biography.html','Biyografi','fa-user'],['/music.html','Müzik','fa-music'],['/tr/qirim.html','Kırım','fa-globe'],['/vocal-school.html','Vokal Okulu','fa-microphone'],['/booking.html','Rezervasyon','fa-calendar-check'],['/press.html','Basın','fa-file-alt']]}
+    }[lang];
+    document.documentElement.lang = t.docLang;
+    document.title = '404 — ' + t.title + ' | Arsen Bekirov';
+    document.getElementById('err-title').textContent = t.title;
+    document.getElementById('err-text').textContent = t.text;
+    document.getElementById('err-links').innerHTML = t.links.map(function(l){return '<a href="'+l[0]+'"><i class="fas '+l[2]+'"></i> '+l[1]+'</a>';}).join('');
+  })();
+  </script>
 </body>
 </html>
