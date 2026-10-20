@@ -299,7 +299,7 @@
   <div id="progress-bar"></div>
   <div id="toast" class="toast"></div>
   <div id="music-float">
-    <button id="music-toggle" onclick="togglePlay()" title="Play/Pause"><div class="pulse-ring"></div><i class="fas fa-play" id="musicToggleIcon"></i></button>
+    <button id="music-toggle" onclick="togglePlay()" title="Play/Pause" aria-label="Play/Pause"><div class="pulse-ring"></div><i class="fas fa-play" id="musicToggleIcon"></i></button>
     <div class="track-info" id="musicTrackInfo"><div class="name" id="musicTrackName">Lose Control</div><div class="artist">Arsen Bekirov</div></div>
   </div>
 
@@ -319,7 +319,7 @@
       <a href="/en/" class="nav-lang"><i class="fas fa-globe"></i> EN</a>
       <div class="lang-mobile"><a href="/en/">English</a><a href="/tr/">Türkçe</a></div>
     </div>
-    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
   </nav>
 
   <section class="inner-hero">
@@ -347,15 +347,15 @@
       <h2>Qirim EP</h2>
       <p>Qirim EP — это современная крымскотатарская музыка: девять треков на стыке этно-попа, этно-соула и академического вокала, от народных мотивов до авторских къырымтатар йырлары. Каждый трек — история о любви, памяти и родной земле в живом вокальном исполнении. Всю крымскотатарскую музыку Арсена Бекирова (qirim tatar music) можно слушать онлайн на стриминговых площадках выше.</p>
       <div class="track-list" style="margin-bottom:48px">
-        <div class="track-item" data-src="/media/audio/ArsenBekirov_MAneler.mp3"><div class="num">01</div><div class="info"><div class="name">Maneler</div><div class="meta">Этно-поп</div></div><button class="play-btn" data-src="/media/audio/ArsenBekirov_MAneler.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/seni-seven.mp3"><div class="num">02</div><div class="info"><div class="name">Seni Seven</div><div class="meta">Поп-баллада · Лауреат QARADENIZ 2025</div></div><button class="play-btn" data-src="/media/audio/seni-seven.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/inan.mp3"><div class="num">03</div><div class="info"><div class="name">INAN</div><div class="meta">Этно-соул / фьюжн</div></div><button class="play-btn" data-src="/media/audio/inan.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/elya-kozlum.mp3"><div class="num">04</div><div class="info"><div class="name">Elya Kozlum</div><div class="meta">Этно-баллада</div></div><button class="play-btn" data-src="/media/audio/elya-kozlum.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/sensin.mp3"><div class="num">05</div><div class="info"><div class="name">Sensin</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/sensin.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/seni-hatyrladikcha.mp3"><div class="num">06</div><div class="info"><div class="name">Seni Hatırladıkça</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/seni-hatyrladikcha.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/dance-et-2026.mp3"><div class="num">07</div><div class="info"><div class="name">Dance ET</div><div class="meta">feat. Ясмина · 2026</div></div><button class="play-btn" data-src="/media/audio/dance-et-2026.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/tek-seni-sevedzhem.mp3"><div class="num">08</div><div class="info"><div class="name">Tek Seni Sevecim</div><div class="meta">Авторский трек · 2025</div></div><button class="play-btn" data-src="/media/audio/tek-seni-sevedzhem.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/qizim-song.mp3"><div class="num">09</div><div class="info"><div class="name">Qızım</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/qizim-song.mp3"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/ArsenBekirov_MAneler.mp3"><div class="num">01</div><div class="info"><div class="name">Maneler</div><div class="meta">Этно-поп</div></div><button class="play-btn" data-src="/media/audio/ArsenBekirov_MAneler.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/seni-seven.mp3"><div class="num">02</div><div class="info"><div class="name">Seni Seven</div><div class="meta">Поп-баллада · Лауреат QARADENIZ 2025</div></div><button class="play-btn" data-src="/media/audio/seni-seven.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/inan.mp3"><div class="num">03</div><div class="info"><div class="name">INAN</div><div class="meta">Этно-соул / фьюжн</div></div><button class="play-btn" data-src="/media/audio/inan.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/elya-kozlum.mp3"><div class="num">04</div><div class="info"><div class="name">Elya Kozlum</div><div class="meta">Этно-баллада</div></div><button class="play-btn" data-src="/media/audio/elya-kozlum.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/sensin.mp3"><div class="num">05</div><div class="info"><div class="name">Sensin</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/sensin.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/seni-hatyrladikcha.mp3"><div class="num">06</div><div class="info"><div class="name">Seni Hatırladıkça</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/seni-hatyrladikcha.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/dance-et-2026.mp3"><div class="num">07</div><div class="info"><div class="name">Dance ET</div><div class="meta">feat. Ясмина · 2026</div></div><button class="play-btn" data-src="/media/audio/dance-et-2026.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/tek-seni-sevedzhem.mp3"><div class="num">08</div><div class="info"><div class="name">Tek Seni Sevecim</div><div class="meta">Авторский трек · 2025</div></div><button class="play-btn" data-src="/media/audio/tek-seni-sevedzhem.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/qizim-song.mp3"><div class="num">09</div><div class="info"><div class="name">Qızım</div><div class="meta">Авторский трек</div></div><button class="play-btn" data-src="/media/audio/qizim-song.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
       </div>
 
       <h2>Eminim</h2>
@@ -367,14 +367,14 @@
           <p style="position:relative;z-index:1;margin-top:8px;font-size:13px;color:var(--gold)">2006 · Дебютный альбом</p>
         </div>
         <div class="track-list">
-          <div class="track-item" data-src="/media/audio/oyna-guzel.mp3"><div class="num">01</div><div class="info"><div class="name">Oyna Guzel</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/oyna-guzel.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/kul-oldu.mp3"><div class="num">02</div><div class="info"><div class="name">Kul Oldu</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/kul-oldu.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/afu-et-meni-yarem.mp3"><div class="num">03</div><div class="info"><div class="name">Afu Et Meni, Yarem</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/afu-et-meni-yarem.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/sagynam.mp3"><div class="num">04</div><div class="info"><div class="name">Sagynam</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/sagynam.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/yirlarim-server.mp3"><div class="num">05</div><div class="info"><div class="name">Yirlarim</div><div class="meta">Дуэт с Сервером Карабаевым · 2006</div></div><button class="play-btn" data-src="/media/audio/yirlarim-server.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/kim-yaratkan-guzel.mp3"><div class="num">06</div><div class="info"><div class="name">Kim Yaratkan Guzel</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/kim-yaratkan-guzel.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/aman-yar.mp3"><div class="num">07</div><div class="info"><div class="name">Aman Yar</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/aman-yar.mp3"><i class="fas fa-play"></i></button></div>
-          <div class="track-item" data-src="/media/audio/ebediy-sevgi.mp3"><div class="num">08</div><div class="info"><div class="name">Ebediy Sevgi (live)</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/ebediy-sevgi.mp3"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/oyna-guzel.mp3"><div class="num">01</div><div class="info"><div class="name">Oyna Guzel</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/oyna-guzel.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/kul-oldu.mp3"><div class="num">02</div><div class="info"><div class="name">Kul Oldu</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/kul-oldu.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/afu-et-meni-yarem.mp3"><div class="num">03</div><div class="info"><div class="name">Afu Et Meni, Yarem</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/afu-et-meni-yarem.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/sagynam.mp3"><div class="num">04</div><div class="info"><div class="name">Sagynam</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/sagynam.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/yirlarim-server.mp3"><div class="num">05</div><div class="info"><div class="name">Yirlarim</div><div class="meta">Дуэт с Сервером Карабаевым · 2006</div></div><button class="play-btn" data-src="/media/audio/yirlarim-server.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/kim-yaratkan-guzel.mp3"><div class="num">06</div><div class="info"><div class="name">Kim Yaratkan Guzel</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/kim-yaratkan-guzel.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/aman-yar.mp3"><div class="num">07</div><div class="info"><div class="name">Aman Yar</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/aman-yar.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+          <div class="track-item" data-src="/media/audio/ebediy-sevgi.mp3"><div class="num">08</div><div class="info"><div class="name">Ebediy Sevgi (live)</div><div class="meta">Eminim · 2006</div></div><button class="play-btn" data-src="/media/audio/ebediy-sevgi.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
         </div>
       </div>
 
@@ -393,9 +393,9 @@
 
       <h2>Синглы</h2>
       <div class="track-list" style="margin-bottom:48px">
-        <div class="track-item" data-src="/media/audio/ebediy-sevgi.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Ebediy Sevgi</div><div class="meta">Сингл · 2017</div></div><button class="play-btn" data-src="/media/audio/ebediy-sevgi.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/oyna-guzel.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Oyna Guzel</div><div class="meta">Сингл</div></div><button class="play-btn" data-src="/media/audio/oyna-guzel.mp3"><i class="fas fa-play"></i></button></div>
-        <div class="track-item" data-src="/media/audio/aman-yar.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Aman Yar</div><div class="meta">Сингл</div></div><button class="play-btn" data-src="/media/audio/aman-yar.mp3"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/ebediy-sevgi.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Ebediy Sevgi</div><div class="meta">Сингл · 2017</div></div><button class="play-btn" data-src="/media/audio/ebediy-sevgi.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/oyna-guzel.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Oyna Guzel</div><div class="meta">Сингл</div></div><button class="play-btn" data-src="/media/audio/oyna-guzel.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
+        <div class="track-item" data-src="/media/audio/aman-yar.mp3"><div class="num"><i class="fas fa-star" style="font-size:10px"></i></div><div class="info"><div class="name">Aman Yar</div><div class="meta">Сингл</div></div><button class="play-btn" data-src="/media/audio/aman-yar.mp3" aria-label="Play"><i class="fas fa-play"></i></button></div>
       </div>
 
       <div class="highlight-box">

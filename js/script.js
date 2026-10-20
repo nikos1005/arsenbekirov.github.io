@@ -110,10 +110,17 @@ ym(109875276, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
   if (toggle && links) {
     toggle.addEventListener('click', () => {
       links.classList.toggle('open');
+      const isOpen = links.classList.contains('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
     // Close menu on link click
     links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => links.classList.remove('open'));
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      });
     });
   }
 })();
